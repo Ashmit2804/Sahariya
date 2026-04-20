@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact — Sahariya Digital Archive</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.contact-layout { display:grid; grid-template-columns:1fr 1.3fr; gap:70px; }
+.contact-person { margin-bottom:2.5rem; }
+.contact-person h3 { font-size:1.8rem; margin-bottom:0.3rem; }
+.contact-person .title { color:var(--terracotta); font-size:0.88rem; letter-spacing:0.06em; margin-bottom:1.5rem; }
+.contact-detail { display:flex; gap:0.8rem; margin-bottom:1rem; font-size:0.9rem; color:var(--charcoal-light); align-items:flex-start; }
+.contact-detail strong { color:var(--charcoal); min-width:60px; font-weight:500; }
+.contact-detail a { color:var(--terracotta); }
+.contact-detail a:hover { text-decoration:underline; }
+.affiliation-box {
+  background:var(--cream); padding:2rem;
+  border-left:3px solid var(--ochre); margin-top:2rem;
+}
+.affiliation-box h4 { font-family:'Jost',sans-serif; font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:1rem; }
+.affiliation-box p { font-size:0.88rem; color:var(--charcoal-light); margin-bottom:0.5rem; }
+.collab-types { display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-top:2rem; }
+.collab-type { background:var(--offwhite); padding:1.2rem; border-top:2px solid var(--sand); }
+.collab-type h5 { font-size:0.9rem; margin-bottom:0.3rem; color:var(--charcoal); }
+.collab-type p { font-size:0.8rem; color:var(--charcoal-light); margin:0; }
+/* Form */
+.contact-form-wrap h3 { font-size:1.6rem; margin-bottom:0.5rem; }
+.contact-form-wrap .sub { color:var(--charcoal-light); font-size:0.9rem; margin-bottom:2rem; }
+.contact-form { display:flex; flex-direction:column; gap:1rem; }
+.form-row { display:grid; grid-template-columns:1fr 1fr; gap:1rem; }
+.contact-form input,
+.contact-form select,
+.contact-form textarea {
+  background:var(--cream); border:1px solid var(--sand);
+  padding:0.85rem 1.1rem; font-family:'Jost',sans-serif; font-size:0.9rem;
+  color:var(--charcoal); outline:none; transition:border-color 0.2s; width:100%;
+}
+.contact-form input:focus,
+.contact-form select:focus,
+.contact-form textarea:focus { border-color:var(--terracotta); background:var(--offwhite); }
+.contact-form textarea { min-height:150px; resize:vertical; }
+.form-note { font-size:0.78rem; color:var(--charcoal-light); margin-top:-0.4rem; }
+@media(max-width:900px){ .contact-layout{grid-template-columns:1fr;} }
+@media(max-width:500px){ .form-row{grid-template-columns:1fr;} .collab-types{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Sahariya</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html">About</a></li>
+    <li><a href="visual-culture.html">Visual Culture</a></li>
+    <li><a href="archive.html">Archive</a></li>
+    <li><a href="community.html">Voices</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="exhibitions.html">Exhibitions</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <p class="page-hero-eyebrow">Contact</p>
+    <h1>Get in <em>Touch</em></h1>
+    <p>For research collaborations, academic inquiries, community partnerships, or media requests — we welcome conversations that support ethical research and cultural engagement.</p>
+  </div>
+</div>
+
+<section style="background:var(--offwhite);">
+  <div class="container">
+    <div class="contact-layout">
+
+      <!-- Info side -->
+      <div>
+        <div class="contact-person fade-in">
+          <p class="section-label">Lead Researcher</p>
+          <h3>Dr. Sunil Lohar</h3>
+          <p class="title">Assistant Professor (Art and Aesthetics) · School of Liberal Arts · IIT Jodhpur</p>
+          <div class="contact-detail"><strong>Tel</strong><span>+91 9849080967</span></div>
+          <div class="contact-detail"><strong>Email</strong><span><a href="mailto:sunillohar@iitj.ac.in">sunillohar@iitj.ac.in</a></span></div>
+          <div class="contact-detail"><strong></strong><span><a href="mailto:sunillohar2412@gmail.com">sunillohar2412@gmail.com</a></span></div>
+          <div class="contact-detail"><strong>Address</strong><span>School of Liberal Arts, IIT Jodhpur,<br>NH-62, Nagaur Road, Karwar,<br>Jodhpur 342037, Rajasthan</span></div>
+        </div>
+
+        <div class="affiliation-box fade-in">
+          <h4>Institutional Affiliation</h4>
+          <p><strong>Indian Institute of Technology Jodhpur</strong></p>
+          <p>IIT Jodhpur is one of India's premier technical institutes, with an active School of Liberal Arts that conducts interdisciplinary research at the intersection of art, culture, and technology.</p>
+          <a href="https://iitj.ac.in" target="_blank" class="btn btn-outline" style="margin-top:1rem;display:inline-block;font-size:0.68rem;">Visit IIT Jodhpur →</a>
+        </div>
+
+        <div style="margin-top:2.5rem;" class="fade-in">
+          <p class="section-label">Collaborations</p>
+          <h3 style="font-size:1.4rem;margin-bottom:1rem;">We welcome <em>partnerships</em> in:</h3>
+          <div class="collab-types">
+            <div class="collab-type"><h5>Academic Research</h5><p>Joint research projects, fieldwork partnerships, and co-authored publications.</p></div>
+            <div class="collab-type"><h5>Cultural Institutions</h5><p>Museum partnerships, exhibition collaborations, and public programming.</p></div>
+            <div class="collab-type"><h5>Community Programmes</h5><p>Initiatives that directly benefit the Sahariya community through education or livelihood support.</p></div>
+            <div class="collab-type"><h5>Media &amp; Documentation</h5><p>Documentary projects, photojournalism, and digital storytelling with ethical grounding.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Form side -->
+      <div class="contact-form-wrap fade-in">
+        <h3>Send a <em>Message</em></h3>
+        <p class="sub">Fill in the form below and we will get back to you within a few working days.</p>
+        <form class="contact-form" id="contactForm" action="https://formspree.io/f/YOUR_FORM_ID" method="POST">
+          <div class="form-row">
+            <input type="text" name="name" placeholder="Your Name" required>
+            <input type="email" name="email" placeholder="Email Address" required>
+          </div>
+          <input type="text" name="institution" placeholder="Institution / Organisation (optional)">
+          <select name="subject">
+            <option value="" disabled selected>Nature of Inquiry</option>
+            <option>Academic Research Collaboration</option>
+            <option>Archive Access Request</option>
+            <option>Exhibition / Cultural Partnership</option>
+            <option>Media / Documentary Project</option>
+            <option>Community Programme</option>
+            <option>General Inquiry</option>
+          </select>
+          <textarea name="message" placeholder="Your message…" required></textarea>
+          <p class="form-note">To enable this form: sign up at formspree.io, create a form, and replace YOUR_FORM_ID in the action attribute of this form with your Formspree endpoint.</p>
+          <div>
+            <button type="submit" class="btn btn-primary">Send Message</button>
+          </div>
+        </form>
+        <div style="margin-top:2.5rem;padding:2rem;background:var(--cream);">
+          <p style="font-size:0.88rem;color:var(--charcoal-light);">We welcome collaborations that support ethical research, cultural preservation, and community engagement. All partnerships are subject to community consultation and consent.</p>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo">Sahariya Digital Archive</div><p>A Living Archive of Art, Culture, and Indigenous Knowledge from Baran, Rajasthan.</p></div>
+      <div class="footer-col"><h4>Pages</h4><ul><li><a href="about.html">About</a></li><li><a href="visual-culture.html">Visual Culture</a></li><li><a href="performative.html">Performative Traditions</a></li><li><a href="archive.html">Digital Archive</a></li></ul></div>
+      <div class="footer-col"><h4>More</h4><ul><li><a href="community.html">Community Voices</a></li><li><a href="research.html">Research</a></li><li><a href="map.html">Map</a></li><li><a href="exhibitions.html">Exhibitions</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="contact.html">Get in Touch</a></li><li><a href="mailto:sunillohar@iitj.ac.in">sunillohar@iitj.ac.in</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Sahariya Digital Archive · IIT Jodhpur</span><span>Developed with community collaboration</span></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
