@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Exhibitions — Sahariya Digital Archive</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.ex-hero-item {
+  display:grid; grid-template-columns:1fr 1fr; gap:0;
+  margin-bottom:4rem; border:1px solid var(--sand);
+  transition: box-shadow 0.3s;
+}
+.ex-hero-item:hover { box-shadow:0 12px 40px rgba(43,43,43,0.1); }
+.ex-hero-item.reverse { direction:rtl; }
+.ex-hero-item.reverse > * { direction:ltr; }
+.ex-cover {
+  aspect-ratio:4/3; display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
+}
+.ex-c1 { background:linear-gradient(135deg,#5C4A1E,#2a1e0a); }
+.ex-c2 { background:linear-gradient(135deg,#8B3D34,#3a1810); }
+.ex-c3 { background:linear-gradient(135deg,#1e3a1e,#0a1e0a); }
+.ex-c4 { background:linear-gradient(135deg,#1e2a3a,#0a1020); }
+.ex-cover svg { opacity:0.2; }
+.ex-num-large {
+  position:absolute; bottom:-0.5rem; right:1rem;
+  font-family:'Cormorant Garamond',serif; font-size:8rem; font-weight:300;
+  color:rgba(255,255,255,0.07); line-height:1;
+}
+.ex-content { padding:3rem; display:flex; flex-direction:column; justify-content:center; }
+.ex-content .section-label { margin-bottom:0.5rem; }
+.ex-content h2 { font-size:1.8rem; margin-bottom:1rem; line-height:1.2; }
+.ex-content h2 em { color:var(--terracotta); font-style:italic; }
+.ex-content p { font-size:0.9rem; color:var(--charcoal-light); margin-bottom:1rem; }
+.ex-items-list { margin-top:1.5rem; display:flex; flex-wrap:wrap; gap:0.5rem; }
+.ex-items-list .tag { cursor:default; }
+@media(max-width:768px){ .ex-hero-item,.ex-hero-item.reverse{grid-template-columns:1fr; direction:ltr;} }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Sahariya</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html">About</a></li>
+    <li><a href="visual-culture.html">Visual Culture</a></li>
+    <li><a href="archive.html">Archive</a></li>
+    <li><a href="community.html">Voices</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="exhibitions.html">Exhibitions</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <p class="page-hero-eyebrow">Exhibitions</p>
+    <h1>Curated <em>Collections</em></h1>
+    <p>Thematic exhibitions that bring together selected materials from the archive — interpretive pathways for engaging with Sahariya culture beyond individual entries.</p>
+  </div>
+</div>
+
+<section style="background:var(--offwhite);">
+  <div class="container">
+    <p class="section-label fade-in">Four Themes</p>
+    <h2 class="section-title fade-in">Explore the <em>Exhibitions</em></h2>
+    <div class="divider"></div>
+    <p class="lead-text fade-in">Each exhibition is a curated selection of archive materials organised around a central interpretive theme. They are designed to offer multiple entry points into the archive — whether you come as an art lover, a researcher, an ecologist, or simply someone curious about Sahariya culture.</p>
+
+    <div class="ex-hero-item fade-in">
+      <div class="ex-cover ex-c1">
+        <svg width="180" height="150" viewBox="0 0 180 150" fill="none"><circle cx="90" cy="75" r="55" stroke="white" stroke-width="1.5"/><path d="M60 40 Q90 10 120 40 Q130 75 90 90 Q50 75 60 40Z" stroke="white" stroke-width="1" fill="none"/><line x1="90" y1="20" x2="90" y2="130" stroke="white" stroke-width="1" stroke-dasharray="4,4"/><line x1="35" y1="75" x2="145" y2="75" stroke="white" stroke-width="1" stroke-dasharray="4,4"/></svg>
+        <div class="ex-num-large">01</div>
+      </div>
+      <div class="ex-content">
+        <p class="section-label">Exhibition 01</p>
+        <h2>Art &amp; <em>Ecology</em></h2>
+        <p>This exhibition brings together Mandana paintings, oral narratives, and field documentation to explore a central question: how does Sahariya art encode ecological knowledge?</p>
+        <p>The Mandana patterns in this exhibition are examined not merely as decorative objects but as repositories of information about landscape, season, plant life, and animal behaviour. Alongside the visual works, audio recordings of ecological songs and interviews with women artists discuss the specific plants, pigments, and seasonal rhythms that structure the art-making calendar.</p>
+        <p>The exhibition argues that for the Sahariya, ecological knowledge is inseparable from aesthetic knowledge — to know how to paint is to know how the world works.</p>
+        <div class="ex-items-list">
+          <span class="tag tag-red">Mandana Paintings</span>
+          <span class="tag tag-green">Ecological Songs</span>
+          <span class="tag tag-ochre">Field Documentation</span>
+          <span class="tag tag-blue">Artist Interviews</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-hero-item reverse fade-in">
+      <div class="ex-cover ex-c2">
+        <svg width="180" height="150" viewBox="0 0 180 150" fill="none"><path d="M90 15 L110 55 L90 75 L70 55 Z" stroke="white" stroke-width="1.5" fill="none"/><path d="M90 75 L130 95 L110 130 L70 130 L50 95 Z" stroke="white" stroke-width="1.5" fill="none"/><circle cx="90" cy="75" r="12" stroke="white" stroke-width="1" fill="none"/><line x1="45" y1="40" x2="135" y2="110" stroke="white" stroke-width="1" opacity="0.4"/></svg>
+        <div class="ex-num-large">02</div>
+      </div>
+      <div class="ex-content">
+        <p class="section-label">Exhibition 02</p>
+        <h2>Women &amp; <em>Mandana</em></h2>
+        <p>Mandana is overwhelmingly a women's art form. This exhibition centres the women of the Sahariya community as artists, knowledge holders, and cultural transmitters — exploring the relationship between gender, creativity, and cultural continuity.</p>
+        <p>The exhibition includes portraits and extended testimonies from practitioners across three generations, as well as documentation of the social contexts in which Mandana is taught and learned. It examines how women's authority over this visual tradition gives them a form of cultural power that is rarely acknowledged in conventional accounts of tribal life.</p>
+        <p>Featured voices include Kamla Bai, Sunita, and Meena Bai — three generations whose conversations about Mandana illuminate both the continuity and the evolution of the tradition.</p>
+        <div class="ex-items-list">
+          <span class="tag tag-red">Women's Portraits</span>
+          <span class="tag tag-green">Testimonies</span>
+          <span class="tag tag-red">Generational Documentation</span>
+          <span class="tag tag-ochre">Teaching Sessions</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-hero-item fade-in">
+      <div class="ex-cover ex-c3">
+        <svg width="180" height="150" viewBox="0 0 180 150" fill="none"><rect x="20" y="50" width="140" height="80" stroke="white" stroke-width="1.5" fill="none"/><polygon points="90,15 145,50 35,50" stroke="white" stroke-width="1.5" fill="none"/><circle cx="55" cy="90" r="18" stroke="white" stroke-width="1" fill="none"/><circle cx="125" cy="90" r="18" stroke="white" stroke-width="1" fill="none"/><rect x="75" y="100" width="30" height="30" stroke="white" stroke-width="1" fill="none"/></svg>
+        <div class="ex-num-large">03</div>
+      </div>
+      <div class="ex-content">
+        <p class="section-label">Exhibition 03</p>
+        <h2>Ritual &amp; <em>Performance</em></h2>
+        <p>This exhibition documents the ritual and performative life of the Sahariya community — the festivals, ceremonies, and theatrical traditions that mark time and maintain community cohesion.</p>
+        <p>Drawing on video recordings, audio documentation, and ethnographic photography, the exhibition takes viewers through the performative dimensions of the Sahariya ritual calendar: harvest ceremonies, life cycle events, seasonal melas, and Swang theatre. It emphasises performance not as spectacle but as a form of collective action and meaning-making.</p>
+        <p>A section on Swang theatre includes recordings of three different performances with contextual notes from performers and audience members, allowing viewers to understand how meaning is made in this participatory form.</p>
+        <div class="ex-items-list">
+          <span class="tag tag-ochre">Swang Theatre</span>
+          <span class="tag tag-blue">Festival Documentation</span>
+          <span class="tag tag-green">Ritual Photography</span>
+          <span class="tag tag-red">Oral Accounts</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="ex-hero-item reverse fade-in">
+      <div class="ex-cover ex-c4">
+        <svg width="180" height="150" viewBox="0 0 180 150" fill="none"><path d="M20 130 Q60 80 90 75 Q120 70 160 20" stroke="white" stroke-width="1.5" fill="none"/><path d="M20 130 Q60 100 90 95 Q120 90 160 50" stroke="white" stroke-width="1" fill="none" stroke-dasharray="5,4"/><circle cx="90" cy="75" r="12" fill="white" opacity="0.15"/><circle cx="90" cy="95" r="12" fill="white" opacity="0.1"/></svg>
+        <div class="ex-num-large">04</div>
+      </div>
+      <div class="ex-content">
+        <p class="section-label">Exhibition 04</p>
+        <h2>Continuity &amp; <em>Change</em></h2>
+        <p>The fourth exhibition addresses change — arguably the most important and least understood dimension of living cultural traditions. It challenges the common assumption that "authentic" indigenous culture is static, and documents how Sahariya practices are actively evolving.</p>
+        <p>Through paired documentation from different time periods, interviews across generations, and testimonies from community members who have engaged with urban life and returned, this exhibition maps the dynamic relationship between tradition and transformation.</p>
+        <p>The exhibition includes reflections from Arjun — the young community member whose perspective opens the community voices section — and presents his argument that change is not a threat to Sahariya culture but one of its defining characteristics.</p>
+        <div class="ex-items-list">
+          <span class="tag tag-blue">Generational Comparison</span>
+          <span class="tag tag-green">Youth Voices</span>
+          <span class="tag tag-ochre">Contemporary Practice</span>
+          <span class="tag tag-red">Historical Records</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="quote-strip">
+  <blockquote>"Curating is an act of listening. These exhibitions are shaped as much by community input as by research decisions."</blockquote>
+  <p class="attribution">— Research Team Note</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo">Sahariya Digital Archive</div><p>A Living Archive of Art, Culture, and Indigenous Knowledge from Baran, Rajasthan.</p></div>
+      <div class="footer-col"><h4>Pages</h4><ul><li><a href="about.html">About</a></li><li><a href="visual-culture.html">Visual Culture</a></li><li><a href="performative.html">Performative Traditions</a></li><li><a href="archive.html">Digital Archive</a></li></ul></div>
+      <div class="footer-col"><h4>More</h4><ul><li><a href="community.html">Community Voices</a></li><li><a href="research.html">Research</a></li><li><a href="map.html">Map</a></li><li><a href="exhibitions.html">Exhibitions</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="contact.html">Get in Touch</a></li><li><a href="mailto:sunillohar@iitj.ac.in">sunillohar@iitj.ac.in</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Sahariya Digital Archive · IIT Jodhpur</span><span>Developed with community collaboration</span></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

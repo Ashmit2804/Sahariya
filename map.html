@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Map — Sahariya Digital Archive</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.map-container { margin-top:2.5rem; position:relative; }
+.map-frame {
+  width:100%; height:480px;
+  border:1px solid rgba(199,154,43,0.25);
+  overflow:hidden; background:#1a2a1a;
+}
+.map-frame iframe { width:100%; height:100%; border:none; filter:saturate(0.65) contrast(1.15); }
+.map-note { font-size:0.8rem; color:var(--charcoal-light); margin-top:0.8rem; font-style:italic; }
+.locations-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
+.location-card { background:var(--cream); padding:1.8rem; border-bottom:2px solid var(--terracotta); }
+.location-card h4 { font-size:1.1rem; margin-bottom:0.4rem; }
+.location-card .coords { font-size:0.72rem; color:var(--terracotta); letter-spacing:0.08em; margin-bottom:0.8rem; }
+.location-card p { font-size:0.84rem; color:var(--charcoal-light); }
+.geo-text p { color:var(--charcoal-light); margin-bottom:1.2rem; max-width:680px; }
+@media(max-width:768px){ .locations-grid{grid-template-columns:1fr 1fr;} }
+@media(max-width:500px){ .locations-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Sahariya</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html">About</a></li>
+    <li><a href="visual-culture.html">Visual Culture</a></li>
+    <li><a href="archive.html">Archive</a></li>
+    <li><a href="community.html">Voices</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="exhibitions.html">Exhibitions</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <p class="page-hero-eyebrow">Geography</p>
+    <h1>Geography of <em>the Study</em></h1>
+    <p>The map locates villages and regions of Baran district, Rajasthan, where fieldwork has been conducted — a landscape that is inseparable from Sahariya cultural practice.</p>
+  </div>
+</div>
+
+<section style="background:var(--offwhite);">
+  <div class="container">
+    <p class="section-label fade-in">Fieldwork Area</p>
+    <h2 class="section-title fade-in">Baran District, <em>Rajasthan</em></h2>
+    <div class="divider"></div>
+    <div class="geo-text fade-in">
+      <p>Baran is a district in southeastern Rajasthan, bordering Madhya Pradesh. It is characterised by the Chambal river basin, substantial forest cover, and a diverse tribal population. The Sahariya community is concentrated in the Shahabad and Kishanganj blocks — areas that retain significant forest cover and have maintained distinct cultural practices.</p>
+      <p>The geographical context is essential to understanding Sahariya culture. Art practices, ecological knowledge, and ritual calendars are all intimately tied to the landscape — its seasons, its plants, its animals, and its rivers. Documentation of cultural practices without geographical documentation would be incomplete.</p>
+    </div>
+    <div class="map-container fade-in">
+      <div class="map-frame">
+        <iframe
+          src="https://www.openstreetmap.org/export/embed.html?bbox=76.1%2C24.4%2C77.3%2C25.3&layer=mapnik&marker=24.85%2C76.65"
+          title="Baran District, Rajasthan"
+          loading="lazy">
+        </iframe>
+      </div>
+      <p class="map-note">Map: Baran District, Rajasthan — primary fieldwork region. Key areas: Shahabad block (northwest), Kishanganj block (northeast). Base map © OpenStreetMap contributors.</p>
+    </div>
+
+    <div class="locations-grid">
+      <div class="location-card fade-in">
+        <h4>Shahabad</h4>
+        <p class="coords">24.92°N, 76.55°E</p>
+        <p>Primary fieldwork block. Dense forest cover. Strong Mandana painting tradition. Site of most visual documentation and elder interviews. Home to Kamla Bai and the women's art collective.</p>
+      </div>
+      <div class="location-card fade-in">
+        <h4>Kishanganj</h4>
+        <p class="coords">24.80°N, 76.88°E</p>
+        <p>Second major fieldwork block. Active Swang performance tradition. Significant oral narrative documentation conducted here. Home to Prem Lal's performance troupe.</p>
+      </div>
+      <div class="location-card fade-in">
+        <h4>Baran Town</h4>
+        <p class="coords">25.10°N, 76.51°E</p>
+        <p>District headquarters. Used as research base. Site of community workshops and review sessions. Several community members study or work here while maintaining village connections.</p>
+      </div>
+      <div class="location-card fade-in">
+        <h4>Forest Areas</h4>
+        <p class="coords">Shahabad–Kishanganj belt</p>
+        <p>The remaining forest tracts between the two blocks are ecologically and culturally significant — sources of art materials (ochre, plant dyes), sites of seasonal gatherings, and subject of ecological narratives in songs and Swang.</p>
+      </div>
+      <div class="location-card fade-in">
+        <h4>Chambal River Zone</h4>
+        <p class="coords">Eastern Baran</p>
+        <p>The Chambal and its tributaries appear prominently in Sahariya oral tradition. The river is a recurring motif in songs, a source of clay for ritual purposes, and a boundary-marker in community geography.</p>
+      </div>
+      <div class="location-card fade-in">
+        <h4>Festival Sites</h4>
+        <p class="coords">Multiple locations</p>
+        <p>Seasonal melas and festivals take place at specific sacred sites across the region. These locations — often at forest clearings, river confluences, or hilltops — are the primary contexts for Swang performance and collective ritual Mandana.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo">Sahariya Digital Archive</div><p>A Living Archive of Art, Culture, and Indigenous Knowledge from Baran, Rajasthan.</p></div>
+      <div class="footer-col"><h4>Pages</h4><ul><li><a href="about.html">About</a></li><li><a href="visual-culture.html">Visual Culture</a></li><li><a href="performative.html">Performative Traditions</a></li><li><a href="archive.html">Digital Archive</a></li></ul></div>
+      <div class="footer-col"><h4>More</h4><ul><li><a href="community.html">Community Voices</a></li><li><a href="research.html">Research</a></li><li><a href="map.html">Map</a></li><li><a href="exhibitions.html">Exhibitions</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="contact.html">Get in Touch</a></li><li><a href="mailto:sunillohar@iitj.ac.in">sunillohar@iitj.ac.in</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Sahariya Digital Archive · IIT Jodhpur</span><span>Developed with community collaboration</span></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

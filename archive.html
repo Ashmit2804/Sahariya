@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Digital Archive — Sahariya Digital Archive</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.archive-controls {
+  display:flex; align-items:center; gap:1rem; flex-wrap:wrap;
+  background:var(--cream); padding:1.5rem 2rem; margin-bottom:2.5rem;
+}
+.filter-btn {
+  padding:0.5rem 1.2rem;
+  font-family:'Jost',sans-serif; font-size:0.7rem; letter-spacing:0.14em; text-transform:uppercase;
+  background:transparent; border:1px solid var(--sand); cursor:pointer; transition:all 0.2s;
+  color:var(--charcoal-light);
+}
+.filter-btn:hover { border-color:var(--terracotta); color:var(--terracotta); }
+.filter-btn.active { background:var(--terracotta); border-color:var(--terracotta); color:white; }
+.search-wrap { margin-left:auto; }
+#archiveSearch {
+  padding:0.55rem 1rem; border:1px solid var(--sand); background:var(--offwhite);
+  font-family:'Jost',sans-serif; font-size:0.88rem; outline:none;
+  transition:border-color 0.2s; width:220px;
+}
+#archiveSearch:focus { border-color:var(--terracotta); }
+.archive-grid {
+  display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem;
+}
+.archive-item {
+  border:1px solid var(--sand); transition:border-color 0.2s, box-shadow 0.2s;
+}
+.archive-item:hover { border-color:var(--terracotta); box-shadow:0 4px 24px rgba(164,74,63,0.1); }
+.archive-thumb {
+  aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; position:relative;
+}
+.at-1 { background:linear-gradient(135deg,#8B3D34,#C96B5E); }
+.at-2 { background:linear-gradient(135deg,#5C4A1E,#C79A2B); }
+.at-3 { background:linear-gradient(135deg,#2B3D2B,#4A6B4A); }
+.at-4 { background:linear-gradient(135deg,#1E3A4A,#3A6B8A); }
+.at-5 { background:linear-gradient(135deg,#4A2B1E,#8A5A3A); }
+.at-6 { background:linear-gradient(135deg,#3a1e3a,#7a4a7a); }
+.archive-thumb svg { opacity:0.25; }
+.archive-body { padding:1.4rem; }
+.archive-body h4 { font-size:1.05rem; margin:0.5rem 0 0.4rem; }
+.archive-body p { font-size:0.83rem; color:var(--charcoal-light); }
+.archive-meta { display:flex; gap:0.8rem; flex-wrap:wrap; font-size:0.73rem; color:var(--charcoal-light); margin-top:1rem; padding-top:0.8rem; border-top:1px solid var(--cream); }
+.statement {
+  background:var(--charcoal); color:var(--offwhite);
+  padding:3rem; margin-top:4rem; border-left:4px solid var(--ochre);
+}
+.statement h3 { font-size:1.5rem; color:var(--offwhite); margin-bottom:1rem; }
+.statement p { color:rgba(245,242,233,0.75); }
+@media(max-width:768px){ .archive-grid{grid-template-columns:1fr 1fr;} #archiveSearch{width:160px;} }
+@media(max-width:500px){ .archive-grid{grid-template-columns:1fr;} .archive-controls{flex-direction:column;align-items:flex-start;} .search-wrap{margin-left:0;} }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Sahariya</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html">About</a></li>
+    <li><a href="visual-culture.html">Visual Culture</a></li>
+    <li><a href="archive.html">Archive</a></li>
+    <li><a href="community.html">Voices</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="exhibitions.html">Exhibitions</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <p class="page-hero-eyebrow">Digital Archive</p>
+    <h1>Preserving a <em>Living Heritage</em></h1>
+    <p>A curated collection of visual, audio, and textual materials documenting Sahariya cultural practices — open-access, ethically documented, community-consented.</p>
+  </div>
+</div>
+
+<section style="background:var(--offwhite);">
+  <div class="container">
+    <p class="section-label fade-in">Archive</p>
+    <h2 class="section-title fade-in">Browse the <em>Collection</em></h2>
+    <div class="divider"></div>
+    <p class="lead-text fade-in">Each entry is accompanied by contextual information including location, cultural significance, and participant narratives. The archive contains photographs, video recordings, audio recordings, transcriptions, and field notes.</p>
+
+    <!-- Filter + Search bar -->
+    <div class="archive-controls fade-in">
+      <button class="filter-btn active" data-filter="all">All</button>
+      <button class="filter-btn" data-filter="visual">Visual Art</button>
+      <button class="filter-btn" data-filter="performance">Performance</button>
+      <button class="filter-btn" data-filter="oral">Oral History</button>
+      <button class="filter-btn" data-filter="ritual">Ritual</button>
+      <div class="search-wrap">
+        <input type="text" id="archiveSearch" placeholder="Search archive…">
+      </div>
+    </div>
+
+    <div class="archive-grid">
+      <div class="archive-item fade-in" data-category="visual">
+        <div class="archive-thumb at-1"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="8" y="8" width="44" height="44" stroke="white" stroke-width="1.5" fill="none"/><circle cx="30" cy="30" r="16" stroke="white" stroke-width="1" fill="none"/><rect x="18" y="18" width="24" height="24" stroke="white" stroke-width="1" transform="rotate(45 30 30)" fill="none"/></svg></div>
+        <div class="archive-body">
+          <span class="tag tag-red">Visual Art</span>
+          <h4>Mandana Ritual Floor Paintings</h4>
+          <p>Floor paintings applied during the Diwali festival in Shahabad. Documents the process from clay wash to final design, with participant commentary on symbolic meaning.</p>
+          <div class="archive-meta"><span>📍 Shahabad</span><span>🗓 Oct 2023</span><span>📷 32 images</span></div>
+        </div>
+      </div>
+      <div class="archive-item fade-in" data-category="visual">
+        <div class="archive-thumb at-2"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="22" stroke="white" stroke-width="1.5" fill="none"/><path d="M30 8 L36 22 L30 30 L24 22 Z" stroke="white" stroke-width="1" fill="none"/><path d="M52 30 L38 36 L30 30 L38 24 Z" stroke="white" stroke-width="1" fill="none"/><path d="M30 52 L24 38 L30 30 L36 38 Z" stroke="white" stroke-width="1" fill="none"/><path d="M8 30 L22 24 L30 30 L22 36 Z" stroke="white" stroke-width="1" fill="none"/></svg></div>
+        <div class="archive-body">
+          <span class="tag tag-red">Visual Art</span>
+          <h4>Wedding Mandana Series</h4>
+          <p>Documentation of Mandana created for a wedding in Kishanganj. Includes pre-ceremony wall painting and floor pattern, with interviews with the artist and family.</p>
+          <div class="archive-meta"><span>📍 Kishanganj</span><span>🗓 Feb 2023</span><span>📷 18 images</span></div>
+        </div>
+      </div>
+      <div class="archive-item fade-in" data-category="performance">
+        <div class="archive-thumb at-3"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="5" y="20" width="50" height="32" stroke="white" stroke-width="1.5" fill="none"/><polygon points="30,5 50,20 10,20" stroke="white" stroke-width="1.5" fill="none"/><circle cx="20" cy="36" r="8" stroke="white" stroke-width="1" fill="none"/><circle cx="40" cy="36" r="8" stroke="white" stroke-width="1" fill="none"/></svg></div>
+        <div class="archive-body">
+          <span class="tag tag-ochre">Performance</span>
+          <h4>Swang Performance — Forest Narrative</h4>
+          <p>Evening Swang performance depicting the story of a forest spirit and a village community. Recorded with community permission; includes full video and transcription.</p>
+          <div class="archive-meta"><span>📍 Kishanganj</span><span>🗓 Nov 2022</span><span>🎬 2 videos</span></div>
+        </div>
+      </div>
+      <div class="archive-item fade-in" data-category="oral">
+        <div class="archive-thumb at-4"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><path d="M20 50 Q20 30 30 18 Q40 30 40 50" stroke="white" stroke-width="1.5" fill="none"/><circle cx="30" cy="14" r="6" stroke="white" stroke-width="1.5" fill="none"/><line x1="15" y1="38" x2="45" y2="38" stroke="white" stroke-width="1" stroke-dasharray="4,3"/></svg></div>
+        <div class="archive-body">
+          <span class="tag tag-green">Oral History</span>
+          <h4>Elder Testimony: Forest Knowledge</h4>
+          <p>Extended interview with a community elder describing the relationship between Sahariya ecological knowledge and seasonal art practices. Hindi with English transcription.</p>
+          <div class="archive-meta"><span>📍 Baran</span><span>🗓 Mar 2023</span><span>🎙 47 min</span></div>
+        </div>
+      </div>
+      <div class="archive-item fade-in" data-category="ritual">
+        <div class="archive-thumb at-5"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><path d="M10 50 L30 10 L50 50 Z" stroke="white" stroke-width="1.5" fill="none"/><circle cx="30" cy="35" r="10" stroke="white" stroke-width="1" fill="none"/></svg></div>
+        <div class="archive-body">
+          <span class="tag tag-blue">Ritual</span>
+          <h4>Harvest Festival Documentation</h4>
+          <p>Multi-day documentation of the Kharif harvest festival including ritual preparations, performance, and community feast. Mandana painted for the occasion is included.</p>
+          <div class="archive-meta"><span>📍 Shahabad</span><span>🗓 Oct 2022</span><span>📷 45 images</span></div>
+        </div>
+      </div>
+      <div class="archive-item fade-in" data-category="oral">
+        <div class="archive-thumb at-6"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><path d="M10 30 Q20 10 30 30 Q40 50 50 30" stroke="white" stroke-width="1.5" fill="none"/><circle cx="20" cy="18" r="5" stroke="white" stroke-width="1" fill="none"/><circle cx="40" cy="42" r="5" stroke="white" stroke-width="1" fill="none"/></svg></div>
+        <div class="archive-body">
+          <span class="tag tag-green">Oral History</span>
+          <h4>Women's Song Traditions</h4>
+          <p>Recordings of songs performed by women in a domestic setting during a naming ceremony. Includes commentary on the purpose and meaning of each song by the performers.</p>
+          <div class="archive-meta"><span>📍 Kishanganj</span><span>🗓 Jan 2024</span><span>🎙 28 min</span></div>
+        </div>
+      </div>
+      <div class="archive-item fade-in" data-category="visual">
+        <div class="archive-thumb at-1"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="12" y="12" width="36" height="36" stroke="white" stroke-width="1.5" fill="none" transform="rotate(45 30 30)"/><circle cx="30" cy="30" r="10" stroke="white" stroke-width="1" fill="none"/></svg></div>
+        <div class="archive-body">
+          <span class="tag tag-red">Visual Art</span>
+          <h4>Seasonal Pattern Survey</h4>
+          <p>A survey of Mandana patterns created across different seasons and occasions in three villages, documenting variation and consistency in the visual vocabulary used.</p>
+          <div class="archive-meta"><span>📍 Multiple</span><span>🗓 2022–2024</span><span>📷 60+ images</span></div>
+        </div>
+      </div>
+      <div class="archive-item fade-in" data-category="performance">
+        <div class="archive-thumb at-2"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><path d="M8 50 L30 15 L52 50" stroke="white" stroke-width="1.5" fill="none"/><path d="M15 38 L45 38" stroke="white" stroke-width="1"/><circle cx="30" cy="28" r="8" stroke="white" stroke-width="1" fill="none"/></svg></div>
+        <div class="archive-body">
+          <span class="tag tag-ochre">Performance</span>
+          <h4>Wedding Ritual Songs</h4>
+          <p>Audio documentation of songs performed during a three-day wedding celebration, organised by day and ritual phase, with contextual notes from field researchers.</p>
+          <div class="archive-meta"><span>📍 Shahabad</span><span>🗓 Apr 2023</span><span>🎙 6 recordings</span></div>
+        </div>
+      </div>
+      <div class="archive-item fade-in" data-category="ritual">
+        <div class="archive-thumb at-3"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="22" stroke="white" stroke-width="1.5" fill="none"/><path d="M15 30 Q22 20 30 30 Q38 40 45 30" stroke="white" stroke-width="1" fill="none"/><line x1="30" y1="8" x2="30" y2="52" stroke="white" stroke-width="1" stroke-dasharray="3,3"/></svg></div>
+        <div class="archive-body">
+          <span class="tag tag-blue">Ritual</span>
+          <h4>Birth Ceremony Documentation</h4>
+          <p>Documentation of a naming and birth ceremony including the specific Mandana painted for the occasion and songs performed to welcome the newborn.</p>
+          <div class="archive-meta"><span>📍 Kishanganj</span><span>🗓 Jul 2023</span><span>📷 22 images</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="statement fade-in">
+      <h3>About the Archive</h3>
+      <p>The archive is not merely a repository but a collaborative space where the Sahariya community participates in documenting and interpreting their own cultural heritage. All entries are created with informed community consent. Some materials are restricted to protect privacy or sacred content — contact the research team for academic access requests.</p>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo">Sahariya Digital Archive</div><p>A Living Archive of Art, Culture, and Indigenous Knowledge from Baran, Rajasthan.</p></div>
+      <div class="footer-col"><h4>Pages</h4><ul><li><a href="about.html">About</a></li><li><a href="visual-culture.html">Visual Culture</a></li><li><a href="performative.html">Performative Traditions</a></li><li><a href="archive.html">Digital Archive</a></li></ul></div>
+      <div class="footer-col"><h4>More</h4><ul><li><a href="community.html">Community Voices</a></li><li><a href="research.html">Research</a></li><li><a href="map.html">Map</a></li><li><a href="exhibitions.html">Exhibitions</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="contact.html">Get in Touch</a></li><li><a href="mailto:sunillohar@iitj.ac.in">sunillohar@iitj.ac.in</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Sahariya Digital Archive · IIT Jodhpur</span><span>Developed with community collaboration</span></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

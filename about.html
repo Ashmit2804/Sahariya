@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>About — Sahariya Digital Archive</title>
+<link rel="stylesheet" href="style.css">
+<style>
+/* ── ABOUT-ONLY ── */
+.about-grid { display: grid; grid-template-columns: 3fr 2fr; gap: 70px; align-items: start; }
+.about-text p { color: var(--charcoal-light); margin-bottom: 1.3rem; }
+.fact-box {
+  background: var(--cream); padding: 2rem;
+  border-left: 3px solid var(--ochre);
+  position: sticky; top: 90px;
+}
+.fact-box h4 { font-family:'Jost',sans-serif; font-size:0.7rem; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:1.2rem; }
+.fact-item { display:flex; justify-content:space-between; padding:0.7rem 0; border-bottom:1px solid var(--sand); font-size:0.88rem; }
+.fact-item:last-child { border-bottom:none; }
+.fact-item strong { color:var(--charcoal); }
+.fact-item span { color:var(--charcoal-light); }
+.callout {
+  background: var(--terracotta); color: white;
+  padding: 2.5rem; margin-top: 3rem;
+}
+.callout h3 { font-size:1.5rem; margin-bottom:0.8rem; color:white; }
+.callout p { font-size:0.92rem; opacity:0.88; }
+@media(max-width:768px){ .about-grid{grid-template-columns:1fr;} .fact-box{position:static;} }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Sahariya</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html">About</a></li>
+    <li><a href="visual-culture.html">Visual Culture</a></li>
+    <li><a href="archive.html">Archive</a></li>
+    <li><a href="community.html">Voices</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="exhibitions.html">Exhibitions</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <p class="page-hero-eyebrow">About</p>
+    <h1>Who are the <em>Sahariya?</em></h1>
+    <p>The only Particularly Vulnerable Tribal Group (PVTG) in Rajasthan — a community whose art, ecology, and spirituality are deeply interwoven.</p>
+  </div>
+</div>
+
+<section style="background:var(--offwhite);">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <p class="section-label fade-in">Identity &amp; Place</p>
+        <h2 class="section-title fade-in">A Community Rooted in <em>Forest and Land</em></h2>
+        <div class="divider"></div>
+        <div class="about-text fade-in">
+          <p>The Sahariya are the only Particularly Vulnerable Tribal Group (PVTG) in Rajasthan, primarily residing in Baran district, particularly in Shahabad and Kishanganj blocks. Historically dependent on forest ecosystems, the community has developed a deeply interconnected system of life in which art, ecology, and spirituality coexist.</p>
+          <p>Their cultural practices—ranging from Mandana wall paintings to Swang performances—reflect a worldview grounded in balance between human life, nature, and the divine. These traditions are not merely aesthetic forms but constitute a living system of knowledge, memory, and identity.</p>
+          <p>Despite their rich cultural heritage, the Sahariya remain largely absent from digital and academic representation. This platform seeks to address that absence by documenting and sharing knowledge systems in genuine collaboration with the community itself.</p>
+        </div>
+
+        <p class="section-label fade-in" style="margin-top:3rem;">Culture &amp; Ecology</p>
+        <h2 class="section-title fade-in">A Worldview of <em>Balance</em></h2>
+        <div class="divider"></div>
+        <div class="about-text fade-in">
+          <p>The Sahariya relationship with their environment is not merely utilitarian—it is cosmological. Forest, land, water, and sky are understood as alive with agency, and cultural practices are forms of ongoing conversation with these forces.</p>
+          <p>Mandana paintings are not decorative additions to domestic space—they are ritual communications. Applied on walls and floors during festivals, harvests, births, and marriages, they mark transitions and invite protection, fertility, and cosmic order.</p>
+          <p>Similarly, Swang theatre and oral song traditions encode ecological knowledge—information about seasons, plants, animal behaviour, and rainfall—in forms that can be transmitted across generations without written text.</p>
+        </div>
+
+        <p class="section-label fade-in" style="margin-top:3rem;">Why This Archive Matters</p>
+        <h2 class="section-title fade-in">Addressing a <em>Representational Gap</em></h2>
+        <div class="divider"></div>
+        <div class="about-text fade-in">
+          <p>India's tribal communities are among the most culturally sophisticated yet least digitally documented peoples on earth. For the Sahariya, this gap is especially pronounced: their practices are not widely exhibited, their languages have limited written records, and their art forms are not included in mainstream art historical canons.</p>
+          <p>This archive is conceived as a corrective—not a salvage project (the community's culture is alive, not disappearing) but a platform for contemporary documentation and future visibility. It is built with community consent and participation, ensuring that the Sahariya speak for themselves.</p>
+        </div>
+        <div class="callout fade-in">
+          <h3>Our Commitment</h3>
+          <p>This platform is a collaborative digital archive that documents and interprets Sahariya art and culture as a living, evolving system of knowledge—created with and alongside the community, not merely about it.</p>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="fact-box">
+          <h4>Community Profile</h4>
+          <div class="fact-item"><strong>Status</strong><span>PVTG (Rajasthan)</span></div>
+          <div class="fact-item"><strong>Primary District</strong><span>Baran, Rajasthan</span></div>
+          <div class="fact-item"><strong>Key Blocks</strong><span>Shahabad, Kishanganj</span></div>
+          <div class="fact-item"><strong>Art Form</strong><span>Mandana Paintings</span></div>
+          <div class="fact-item"><strong>Performance</strong><span>Swang Theatre</span></div>
+          <div class="fact-item"><strong>Language</strong><span>Sahariya / Hindi</span></div>
+          <div class="fact-item"><strong>Ecology</strong><span>Forest-dependent</span></div>
+          <div class="fact-item"><strong>Fieldwork Began</strong><span>2022</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="quote-strip">
+  <blockquote>"Our traditions are not remnants of the past. They are how we understand and live in the present."</blockquote>
+  <p class="attribution">— Sahariya Elder, Baran District</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo">Sahariya Digital Archive</div><p>A Living Archive of Art, Culture, and Indigenous Knowledge from Baran, Rajasthan.</p></div>
+      <div class="footer-col"><h4>Pages</h4><ul><li><a href="about.html">About</a></li><li><a href="visual-culture.html">Visual Culture</a></li><li><a href="performative.html">Performative Traditions</a></li><li><a href="archive.html">Digital Archive</a></li></ul></div>
+      <div class="footer-col"><h4>More</h4><ul><li><a href="community.html">Community Voices</a></li><li><a href="research.html">Research</a></li><li><a href="map.html">Map</a></li><li><a href="exhibitions.html">Exhibitions</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="contact.html">Get in Touch</a></li><li><a href="mailto:sunillohar@iitj.ac.in">sunillohar@iitj.ac.in</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Sahariya Digital Archive · IIT Jodhpur</span><span>Developed with community collaboration</span></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

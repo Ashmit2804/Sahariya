@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Community Voices — Sahariya Digital Archive</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.cv-main-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:2rem; margin-top:3rem; }
+.cv-main-card { background:var(--cream); overflow:hidden; }
+.cv-portrait { aspect-ratio:3/4; display:flex; align-items:center; justify-content:center; position:relative; }
+.cv-p1 { background:linear-gradient(160deg,#8B3D34,#3a1810); }
+.cv-p2 { background:linear-gradient(160deg,#5C4A1E,#2a2010); }
+.cv-p3 { background:linear-gradient(160deg,#2B3D4A,#0e1a22); }
+.cv-p4 { background:linear-gradient(160deg,#2B3D2B,#0e1a0e); }
+.cv-p5 { background:linear-gradient(160deg,#4A2B3A,#1e0e18); }
+.cv-p6 { background:linear-gradient(160deg,#1e3a4a,#0a1822); }
+.cv-initials {
+  font-family:'Cormorant Garamond',serif; font-size:3.5rem; font-weight:300;
+  color:rgba(245,242,233,0.3);
+}
+.cv-role-badge {
+  position:absolute; bottom:1rem; left:1rem;
+  font-size:0.65rem; letter-spacing:0.18em; text-transform:uppercase;
+  color:white; background:rgba(0,0,0,0.45); padding:4px 10px;
+}
+.cv-main-body { padding:1.8rem; }
+.cv-main-body h3 { font-size:1.25rem; margin-bottom:0.3rem; }
+.cv-location { font-size:0.75rem; color:var(--terracotta); letter-spacing:0.1em; margin-bottom:1rem; }
+.cv-main-body blockquote {
+  font-family:'Cormorant Garamond',serif; font-style:italic; font-size:1.05rem;
+  color:var(--charcoal); line-height:1.6; border-left:2px solid var(--ochre); padding-left:1rem;
+  margin-bottom:1rem;
+}
+.cv-main-body p { font-size:0.85rem; color:var(--charcoal-light); }
+.voices-statement {
+  background:var(--charcoal); padding:3.5rem; margin-top:4rem;
+  display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center;
+}
+.voices-statement h3 { font-size:2rem; color:var(--offwhite); margin-bottom:1rem; }
+.voices-statement p { color:rgba(245,242,233,0.7); }
+@media(max-width:900px){ .cv-main-grid{grid-template-columns:1fr 1fr;} .voices-statement{grid-template-columns:1fr;} }
+@media(max-width:500px){ .cv-main-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Sahariya</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html">About</a></li>
+    <li><a href="visual-culture.html">Visual Culture</a></li>
+    <li><a href="archive.html">Archive</a></li>
+    <li><a href="community.html">Voices</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="exhibitions.html">Exhibitions</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <p class="page-hero-eyebrow">Community Voices</p>
+    <h1>Voices from the <em>Community</em></h1>
+    <p>The Sahariya speak in their own voice — sharing knowledge, memory, and reflections on tradition and change through interviews, stories, and recorded testimonies.</p>
+  </div>
+</div>
+
+<section style="background:var(--offwhite);">
+  <div class="container">
+    <p class="section-label fade-in">Testimonies</p>
+    <h2 class="section-title fade-in">Artists, Elders, <em>and Youth</em></h2>
+    <div class="divider"></div>
+    <p class="lead-text fade-in">This section foregrounds the perspectives of Sahariya artists, elders, and youth. Their narratives provide insight into lived experiences, creative practices, and the changing cultural landscape of the community.</p>
+    <div class="cv-main-grid">
+
+      <div class="cv-main-card fade-in">
+        <div class="cv-portrait cv-p1"><div class="cv-initials">K</div><div class="cv-role-badge">Elder Artist</div></div>
+        <div class="cv-main-body">
+          <h3>Kamla Bai</h3>
+          <p class="cv-location">📍 Shahabad · Mandana Practitioner</p>
+          <blockquote>"Our art is part of our life. It is how we remember, celebrate, and understand the world around us."</blockquote>
+          <p>Kamla Bai has been painting Mandana for over four decades. In her interview, she describes how she learned from her mother as a child, accompanying her to festivals and watching her prepare the clay ground before painting. She speaks about the difference between paintings made "with feeling" and those made hastily, and about how the young women of her village are now learning again after a period when the practice had declined.</p>
+        </div>
+      </div>
+
+      <div class="cv-main-card fade-in">
+        <div class="cv-portrait cv-p2"><div class="cv-initials">R</div><div class="cv-role-badge">Community Elder</div></div>
+        <div class="cv-main-body">
+          <h3>Ratan Singh</h3>
+          <p class="cv-location">📍 Baran · Knowledge Holder</p>
+          <blockquote>"Every pattern we draw is a conversation with the land. The colours come from the earth itself — the red clay, the white stone."</blockquote>
+          <p>Ratan Singh is a community elder and former performer in Swang theatre. His extended oral testimony covers over sixty years of cultural memory — changes in the forest, changes in festivals, and the way that Swang narratives have shifted as the community has engaged with the wider world. He is one of the few remaining speakers of the older ceremonial language used in some Swang performances.</p>
+        </div>
+      </div>
+
+      <div class="cv-main-card fade-in">
+        <div class="cv-portrait cv-p3"><div class="cv-initials">S</div><div class="cv-role-badge">Youth Artist</div></div>
+        <div class="cv-main-body">
+          <h3>Sunita</h3>
+          <p class="cv-location">📍 Kishanganj · Young Practitioner</p>
+          <blockquote>"Learning Mandana from my grandmother is learning how to see — the world, the seasons, our own hands."</blockquote>
+          <p>Sunita is twenty-two years old and has been learning Mandana since she was eight. She talks about the experience of documenting her own practice as part of the archive project — "strange, but also important," she says — and about her hope that the archive will allow her children to learn from it even if, as she imagines, they may one day live in cities far from Kishanganj.</p>
+        </div>
+      </div>
+
+      <div class="cv-main-card fade-in">
+        <div class="cv-portrait cv-p4"><div class="cv-initials">P</div><div class="cv-role-badge">Performer</div></div>
+        <div class="cv-main-body">
+          <h3>Prem Lal</h3>
+          <p class="cv-location">📍 Shahabad · Swang Performer</p>
+          <blockquote>"In Swang, you are never just yourself. You become the story, and the story becomes the village."</blockquote>
+          <p>Prem Lal has been performing in Swang since his teens and now leads the troupe in his village. He describes the experience of rehearsal (or its absence — much of Swang is improvised within known structures), the relationship between performers and audience, and the changes in the narratives over time as new stories enter the repertoire and old ones fall away.</p>
+        </div>
+      </div>
+
+      <div class="cv-main-card fade-in">
+        <div class="cv-portrait cv-p5"><div class="cv-initials">M</div><div class="cv-role-badge">Song Keeper</div></div>
+        <div class="cv-main-body">
+          <h3>Meena Bai</h3>
+          <p class="cv-location">📍 Kishanganj · Oral Tradition Keeper</p>
+          <blockquote>"My songs are my grandmother's songs, and her grandmother's before that. I do not know where they begin."</blockquote>
+          <p>Meena Bai is known in her community as a keeper of the women's song tradition. She knows dozens of songs for different occasions — births, deaths, harvests, weddings, the seasons — and her testimony describes what each type of song is for, who can sing it, and when. She is teaching her daughters and nieces, but worries that they "know the words but not yet the feeling."</p>
+        </div>
+      </div>
+
+      <div class="cv-main-card fade-in">
+        <div class="cv-portrait cv-p6"><div class="cv-initials">A</div><div class="cv-role-badge">Youth Voice</div></div>
+        <div class="cv-main-body">
+          <h3>Arjun</h3>
+          <p class="cv-location">📍 Baran · Student</p>
+          <blockquote>"I want people outside to know that we are not a 'vanishing' people. We are here. Our art is here. We are changing, yes — but changing is not disappearing."</blockquote>
+          <p>Arjun is nineteen and studying in Baran town while returning to his village regularly. His perspective bridges the community's self-understanding and its relationship to external representations. He was one of the young community members who helped with the documentation process, and his reflections on what it means to be "archived" are a valuable part of the research record.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="voices-statement fade-in">
+      <div>
+        <h3>Why Community Voice Matters</h3>
+        <p>This project is grounded in the conviction that communities have the right to represent themselves. Too often, tribal and indigenous communities are documented from the outside — observed, catalogued, and interpreted by researchers who hold interpretive authority. This archive attempts a different relationship.</p>
+      </div>
+      <div>
+        <p style="color:rgba(245,242,233,0.7);">Through interviews, recorded testimonies, and collaborative documentation sessions, community members shape what is included in this archive, how it is framed, and what meanings are attached to it. The voices in this section are not "informants" — they are co-authors of this record of their own culture.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="quote-strip">
+  <blockquote>"Documentation is not neutral. We chose to tell our story this way, together."</blockquote>
+  <p class="attribution">— Community Workshop Participant, Baran 2023</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo">Sahariya Digital Archive</div><p>A Living Archive of Art, Culture, and Indigenous Knowledge from Baran, Rajasthan.</p></div>
+      <div class="footer-col"><h4>Pages</h4><ul><li><a href="about.html">About</a></li><li><a href="visual-culture.html">Visual Culture</a></li><li><a href="performative.html">Performative Traditions</a></li><li><a href="archive.html">Digital Archive</a></li></ul></div>
+      <div class="footer-col"><h4>More</h4><ul><li><a href="community.html">Community Voices</a></li><li><a href="research.html">Research</a></li><li><a href="map.html">Map</a></li><li><a href="exhibitions.html">Exhibitions</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="contact.html">Get in Touch</a></li><li><a href="mailto:sunillohar@iitj.ac.in">sunillohar@iitj.ac.in</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Sahariya Digital Archive · IIT Jodhpur</span><span>Developed with community collaboration</span></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

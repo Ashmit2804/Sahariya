@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Performative Traditions — Sahariya Digital Archive</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.pt-feature { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; margin-bottom:80px; padding-bottom:80px; border-bottom:1px solid var(--sand); }
+.pt-feature:last-child { border-bottom:none; margin-bottom:0; padding-bottom:0; }
+.pt-feature.reverse { direction:rtl; }
+.pt-feature.reverse > * { direction:ltr; }
+.pt-text p { color:var(--charcoal-light); margin-bottom:1.1rem; }
+.pt-media {
+  background: linear-gradient(135deg,#3a2318,#8B3D34);
+  aspect-ratio:4/3; display:flex; align-items:center; justify-content:center;
+  position:relative; overflow:hidden;
+}
+.pt-media-2 { background:linear-gradient(135deg,#1e2a3a,#3a5a7a); }
+.pt-media-3 { background:linear-gradient(135deg,#2a1e3a,#5a3a7a); }
+.pt-media svg { opacity:0.2; }
+.pt-media-label {
+  position:absolute; bottom:1rem; left:1rem;
+  font-size:0.7rem; letter-spacing:0.16em; text-transform:uppercase;
+  color:rgba(245,242,233,0.6); background:rgba(0,0,0,0.4); padding:4px 10px;
+}
+.songs-list { margin-top:2rem; }
+.song-item {
+  display:flex; align-items:center; gap:1rem; padding:1rem 0;
+  border-bottom:1px solid var(--sand);
+}
+.song-item:last-child { border-bottom:none; }
+.song-play {
+  width:44px; height:44px; border-radius:50%;
+  background:var(--terracotta); color:white;
+  display:flex; align-items:center; justify-content:center;
+  font-size:0.9rem; flex-shrink:0; cursor:pointer;
+  transition: background 0.2s;
+}
+.song-play:hover { background:var(--terracotta-light); }
+.song-info h4 { font-size:1rem; margin-bottom:0.2rem; }
+.song-info span { font-size:0.78rem; color:var(--charcoal-light); }
+.rituals-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem; }
+.ritual-card { background:var(--cream); overflow:hidden; }
+.ritual-img { aspect-ratio:4/3; display:flex; align-items:center; justify-content:center; }
+.ri-1 { background:linear-gradient(135deg,#5C4A1E,#C79A2B); }
+.ri-2 { background:linear-gradient(135deg,#3a2318,#8B3D34); }
+.ri-3 { background:linear-gradient(135deg,#1e2a1e,#4a7a4a); }
+.ritual-card-body { padding:1.2rem; }
+.ritual-card-body h4 { font-size:1rem; margin-bottom:0.4rem; }
+.ritual-card-body p { font-size:0.82rem; color:var(--charcoal-light); }
+@media(max-width:768px){
+  .pt-feature{grid-template-columns:1fr;}
+  .pt-feature.reverse{direction:ltr;}
+  .rituals-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:500px){ .rituals-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Sahariya</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html">About</a></li>
+    <li><a href="visual-culture.html">Visual Culture</a></li>
+    <li><a href="archive.html">Archive</a></li>
+    <li><a href="community.html">Voices</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="exhibitions.html">Exhibitions</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <p class="page-hero-eyebrow">Performative Traditions</p>
+    <h1>Voice, Memory<br>and <em>Movement</em></h1>
+    <p>Sahariya culture is equally expressed through performance, oral storytelling, and ritual enactment — carrying collective memory, ethical values, and ecological knowledge across generations.</p>
+  </div>
+</div>
+
+<section style="background:var(--offwhite);">
+  <div class="container">
+
+    <!-- Swang -->
+    <div class="pt-feature">
+      <div class="pt-text fade-in">
+        <p class="section-label">Swang Theatre</p>
+        <h2 class="section-title">Drama, Music, <em>and Storytelling</em></h2>
+        <div class="divider"></div>
+        <p>Swang is a performative tradition indigenous to Rajasthan and central India that among the Sahariya combines drama, music, and oral narrative in communal evening performances. It is not staged theatre in the conventional sense — it is participatory, open-air, and deeply tied to the ritual calendar.</p>
+        <p>Swang performances typically depict episodes from mythology, local history, and moral fables. Performers play multiple roles, switching characters through costume and gesture rather than elaborate staging. The form is immediately accessible to community members of all ages, functioning simultaneously as entertainment, moral education, and collective memory-keeping.</p>
+        <p>Among the Sahariya, Swang often incorporates elements specific to their cosmology — forest deities, ecological spirits, and narratives about the relationship between human communities and the natural world. These elements differentiate Sahariya Swang from the more widely documented forms found in urban or agricultural communities.</p>
+        <div class="btn-group" style="margin-top:1.5rem;">
+          <a href="archive.html" class="btn btn-primary">View Performance Recordings</a>
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="pt-media">
+          <svg width="140" height="120" viewBox="0 0 140 120" fill="none"><rect x="10" y="40" width="120" height="70" stroke="white" stroke-width="1.5" fill="none"/><polygon points="70,10 110,40 30,40" stroke="white" stroke-width="1.5" fill="none"/><circle cx="50" cy="75" r="15" stroke="white" stroke-width="1.5" fill="none"/><circle cx="90" cy="75" r="15" stroke="white" stroke-width="1.5" fill="none"/><rect x="60" y="90" width="20" height="20" stroke="white" stroke-width="1" fill="none"/></svg>
+          <div class="pt-media-label">Swang Performance Documentation</div>
+        </div>
+        <p style="font-size:0.78rem;color:var(--charcoal-light);margin-top:0.8rem;font-style:italic;">Video documentation of Swang performances is available in the Digital Archive. Audio recordings of individual performances are accessible with community consent.</p>
+      </div>
+    </div>
+
+    <!-- Songs -->
+    <div class="pt-feature reverse">
+      <div class="pt-text fade-in">
+        <p class="section-label">Folk Songs &amp; Oral Narratives</p>
+        <h2 class="section-title">Songs as <em>Living Libraries</em></h2>
+        <div class="divider"></div>
+        <p>Sahariya folk songs are not merely musical entertainment — they are repositories of history, cosmological knowledge, ecological understanding, and social norms. Transmitted orally across generations, they represent a form of living library that requires no written medium.</p>
+        <p>Different categories of song serve different social functions: harvest songs mark agricultural transitions and encode knowledge about soil, rainfall, and planting cycles; wedding songs narrate the social expectations and emotional terrain of marriage; lullabies carry protective incantations; and festival songs retell mythological narratives that anchor community identity.</p>
+        <p>The oral tradition also includes extended narratives — stories performed by specialists (often older women) that can last several hours and weave together genealogy, ecology, ethics, and cosmology into coherent narrative worlds.</p>
+        <div class="songs-list">
+          <div class="song-item"><div class="song-play">▶</div><div class="song-info"><h4>Harvest Festival Song (Kharif Season)</h4><span>Oral tradition · Shahabad, 2023 · 4:12</span></div></div>
+          <div class="song-item"><div class="song-play">▶</div><div class="song-info"><h4>Wedding Ritual Narrative</h4><span>Women's tradition · Kishanganj, 2022 · 7:48</span></div></div>
+          <div class="song-item"><div class="song-play">▶</div><div class="song-info"><h4>Forest Song (Ecological Knowledge)</h4><span>Community performance · Baran, 2024 · 5:30</span></div></div>
+          <div class="song-item"><div class="song-play">▶</div><div class="song-info"><h4>Festival Invocation</h4><span>Ritual context · Shahabad, 2023 · 3:20</span></div></div>
+        </div>
+        <p style="font-size:0.78rem;color:var(--charcoal-light);margin-top:1rem;font-style:italic;">Audio files available in the archive with community permission. Contact us for research access.</p>
+      </div>
+      <div class="fade-in">
+        <div class="pt-media pt-media-2">
+          <svg width="140" height="120" viewBox="0 0 140 120" fill="none"><path d="M20 60 Q35 30 50 60 Q65 90 80 60 Q95 30 110 60 Q125 90 130 60" stroke="white" stroke-width="1.5" fill="none"/><circle cx="50" cy="60" r="8" fill="white" opacity="0.3"/><circle cx="80" cy="60" r="8" fill="white" opacity="0.3"/><circle cx="110" cy="60" r="8" fill="white" opacity="0.3"/></svg>
+          <div class="pt-media-label">Oral Song Archive</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Rituals -->
+    <div>
+      <p class="section-label fade-in">Ritual Performances</p>
+      <h2 class="section-title fade-in">Festivals and <em>Communal Ceremonies</em></h2>
+      <div class="divider"></div>
+      <p class="lead-text fade-in">The Sahariya ritual calendar is dense with performative events that integrate art, music, movement, and community participation. These are not separate "cultural events" — they are the primary occasions through which community life is organised and renewed.</p>
+      <div class="rituals-grid">
+        <div class="ritual-card fade-in">
+          <div class="ritual-img ri-1"><svg width="70" height="60" viewBox="0 0 70 60" fill="none" opacity="0.35"><circle cx="35" cy="25" r="18" stroke="white" stroke-width="1.5" fill="none"/><line x1="35" y1="43" x2="35" y2="58" stroke="white" stroke-width="1.5"/><line x1="20" y1="50" x2="35" y2="43" stroke="white" stroke-width="1.5"/><line x1="50" y1="50" x2="35" y2="43" stroke="white" stroke-width="1.5"/></svg></div>
+          <div class="ritual-card-body"><h4>Agricultural Festivals</h4><p>Ceremonies marking sowing, growth, and harvest that integrate Mandana painting, song, and communal feasting. Documentation includes Kharif and Rabi season rituals.</p></div>
+        </div>
+        <div class="ritual-card fade-in">
+          <div class="ritual-img ri-2"><svg width="70" height="60" viewBox="0 0 70 60" fill="none" opacity="0.35"><path d="M10 50 L35 10 L60 50" stroke="white" stroke-width="1.5" fill="none"/><path d="M10 50 L60 50" stroke="white" stroke-width="1.5"/><circle cx="35" cy="30" r="8" stroke="white" stroke-width="1" fill="none"/></svg></div>
+          <div class="ritual-card-body"><h4>Life Cycle Ceremonies</h4><p>Birth, naming, coming-of-age, marriage, and funerary rituals — each with specific performative components, songs, and Mandana forms associated with the transition being marked.</p></div>
+        </div>
+        <div class="ritual-card fade-in">
+          <div class="ritual-img ri-3"><svg width="70" height="60" viewBox="0 0 70 60" fill="none" opacity="0.35"><rect x="10" y="15" width="50" height="35" stroke="white" stroke-width="1.5" fill="none"/><path d="M10 15 L35 5 L60 15" stroke="white" stroke-width="1.5" fill="none"/><line x1="30" y1="50" x2="30" y2="15" stroke="white" stroke-width="1"/><line x1="40" y1="50" x2="40" y2="15" stroke="white" stroke-width="1"/></svg></div>
+          <div class="ritual-card-body"><h4>Seasonal Fairs (Melas)</h4><p>Large community gatherings at sacred sites that draw performers, artists, traders, and families together. These events are primary contexts for the transmission of tradition between generations.</p></div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="quote-strip">
+  <blockquote>"In Swang, everyone is an audience and everyone is a performer. The story belongs to all of us."</blockquote>
+  <p class="attribution">— Sahariya Community Member, Kishanganj</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo">Sahariya Digital Archive</div><p>A Living Archive of Art, Culture, and Indigenous Knowledge from Baran, Rajasthan.</p></div>
+      <div class="footer-col"><h4>Pages</h4><ul><li><a href="about.html">About</a></li><li><a href="visual-culture.html">Visual Culture</a></li><li><a href="performative.html">Performative Traditions</a></li><li><a href="archive.html">Digital Archive</a></li></ul></div>
+      <div class="footer-col"><h4>More</h4><ul><li><a href="community.html">Community Voices</a></li><li><a href="research.html">Research</a></li><li><a href="map.html">Map</a></li><li><a href="exhibitions.html">Exhibitions</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="contact.html">Get in Touch</a></li><li><a href="mailto:sunillohar@iitj.ac.in">sunillohar@iitj.ac.in</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Sahariya Digital Archive · IIT Jodhpur</span><span>Developed with community collaboration</span></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

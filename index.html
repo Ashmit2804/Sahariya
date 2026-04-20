@@ -1,0 +1,1131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sahariya Digital Archive</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,400&family=Jost:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --terracotta: #A44A3F;
+    --terracotta-light: #C96B5E;
+    --terracotta-dark: #7A3530;
+    --offwhite: #F5F2E9;
+    --cream: #EDE8DA;
+    --charcoal: #2B2B2B;
+    --charcoal-light: #444;
+    --ochre: #C79A2B;
+    --ochre-light: #E3B94A;
+    --sand: #D4C5A0;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Jost', sans-serif;
+    background: var(--offwhite);
+    color: var(--charcoal);
+    font-size: 17px;
+    line-height: 1.7;
+  }
+
+  h1, h2, h3, h4, blockquote {
+    font-family: 'Cormorant Garamond', serif;
+  }
+
+  /* ─── NAV ─── */
+  nav {
+    position: fixed; top: 0; width: 100%; z-index: 100;
+    background: rgba(43,43,43,0.96);
+    backdrop-filter: blur(8px);
+    padding: 0 5%;
+    display: flex; align-items: center; justify-content: space-between;
+    height: 64px;
+  }
+  .nav-logo {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--offwhite);
+    font-size: 1.2rem;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+    text-decoration: none;
+  }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a {
+    color: var(--sand);
+    text-decoration: none;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    transition: color 0.2s;
+  }
+  .nav-links a:hover { color: var(--ochre-light); }
+  .hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; }
+  .hamburger span { width: 24px; height: 2px; background: var(--offwhite); transition: 0.3s; }
+
+  /* ─── HERO ─── */
+  #hero {
+    height: 100vh; min-height: 600px;
+    position: relative;
+    display: flex; align-items: center;
+    overflow: hidden;
+  }
+  .hero-bg {
+    position: absolute; inset: 0;
+    background: 
+      linear-gradient(160deg, rgba(164,74,63,0.18) 0%, rgba(43,43,43,0.72) 60%),
+      repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 40px,
+        rgba(199,154,43,0.04) 40px,
+        rgba(199,154,43,0.04) 80px
+      ),
+      linear-gradient(135deg, #3a2318 0%, #1e1209 40%, #2d1a10 100%);
+  }
+  /* Mandana-inspired geometric decoration */
+  .hero-pattern {
+    position: absolute; inset: 0; opacity: 0.06;
+    background-image: 
+      radial-gradient(circle at 20% 30%, var(--ochre) 2px, transparent 2px),
+      radial-gradient(circle at 80% 20%, var(--ochre) 2px, transparent 2px),
+      radial-gradient(circle at 60% 70%, var(--ochre) 2px, transparent 2px);
+    background-size: 80px 80px;
+  }
+  .hero-content {
+    position: relative; z-index: 2;
+    max-width: 1200px; margin: 0 auto; padding: 0 5%;
+    padding-top: 80px;
+  }
+  .hero-eyebrow {
+    color: var(--ochre);
+    font-size: 0.75rem;
+    letter-spacing: 0.25em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+    font-family: 'Jost', sans-serif;
+  }
+  .hero-title {
+    color: var(--offwhite);
+    font-size: clamp(2.8rem, 6vw, 5.5rem);
+    font-weight: 300;
+    line-height: 1.08;
+    margin-bottom: 1.5rem;
+    max-width: 700px;
+  }
+  .hero-title em { color: var(--ochre-light); font-style: italic; }
+  .hero-subtitle {
+    color: rgba(245,242,233,0.75);
+    font-size: 1.05rem;
+    max-width: 520px;
+    margin-bottom: 2.5rem;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+  }
+  .btn-group { display: flex; gap: 1rem; flex-wrap: wrap; }
+  .btn {
+    padding: 0.85rem 2rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.78rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    text-decoration: none;
+    border: none; cursor: pointer;
+    transition: all 0.25s;
+  }
+  .btn-primary {
+    background: var(--terracotta);
+    color: white;
+  }
+  .btn-primary:hover { background: var(--terracotta-light); transform: translateY(-2px); }
+  .btn-outline {
+    background: transparent;
+    color: var(--offwhite);
+    border: 1px solid rgba(245,242,233,0.4);
+  }
+  .btn-outline:hover { border-color: var(--ochre); color: var(--ochre); }
+
+  /* ─── SECTION BASE ─── */
+  section { padding: 100px 5%; }
+  .container { max-width: 1200px; margin: 0 auto; }
+  .section-label {
+    font-size: 0.72rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    margin-bottom: 0.8rem;
+    font-family: 'Jost', sans-serif;
+  }
+  .section-title {
+    font-size: clamp(2rem, 3.5vw, 3rem);
+    font-weight: 300;
+    line-height: 1.2;
+    color: var(--charcoal);
+    margin-bottom: 1.5rem;
+  }
+  .section-title em { color: var(--terracotta); font-style: italic; }
+  .divider {
+    width: 48px; height: 2px;
+    background: var(--ochre);
+    margin-bottom: 2rem;
+  }
+
+  /* ─── INTRO ─── */
+  #intro { background: var(--offwhite); }
+  .intro-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+  }
+  .intro-text p { color: var(--charcoal-light); margin-bottom: 1.2rem; }
+  .intro-image {
+    position: relative;
+  }
+  .intro-image .img-frame {
+    width: 100%; aspect-ratio: 4/5;
+    background: 
+      linear-gradient(135deg, #8B3D34 0%, #5C2820 50%, #3a1e18 100%);
+    position: relative;
+    overflow: hidden;
+  }
+  .mandana-svg {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+  }
+  .intro-image::before {
+    content: '';
+    position: absolute;
+    top: 20px; left: 20px;
+    right: -20px; bottom: -20px;
+    border: 1px solid var(--ochre);
+    z-index: -1;
+  }
+
+  /* ─── EXPLORE GRID ─── */
+  #explore { background: var(--cream); }
+  .cards-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .card {
+    background: var(--offwhite);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+  }
+  .card:hover { transform: translateY(-6px); box-shadow: 0 20px 50px rgba(43,43,43,0.12); }
+  .card-thumb {
+    height: 180px;
+    position: relative;
+    overflow: hidden;
+  }
+  .card-thumb-vc { background: linear-gradient(135deg, #8B3D34, #C96B5E); }
+  .card-thumb-pt { background: linear-gradient(135deg, #5C4A1E, #C79A2B); }
+  .card-thumb-da { background: linear-gradient(135deg, #2B3D2B, #4A6B4A); }
+  .card-thumb-cv { background: linear-gradient(135deg, #2B2B4A, #5A5A8A); }
+  .card-thumb-re { background: linear-gradient(135deg, #1E3A4A, #3A6B8A); }
+  .card-thumb-ex { background: linear-gradient(135deg, #4A2B1E, #8A5A3A); }
+  .card-inner-icon {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 3rem; opacity: 0.25;
+  }
+  .card-body { padding: 1.5rem; }
+  .card-body h3 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--charcoal);
+  }
+  .card-body p {
+    font-size: 0.85rem;
+    color: var(--charcoal-light);
+    line-height: 1.55;
+    margin-bottom: 1rem;
+  }
+  .card-link {
+    font-size: 0.72rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    font-family: 'Jost', sans-serif;
+  }
+
+  /* ─── ABOUT ─── */
+  #about { background: var(--offwhite); }
+  .about-text { max-width: 760px; }
+  .about-text p { color: var(--charcoal-light); margin-bottom: 1.2rem; }
+
+  /* ─── VISUAL CULTURE ─── */
+  #visual-culture { background: var(--cream); }
+  .vc-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: start;
+    margin-top: 3rem;
+  }
+  .vc-items { display: flex; flex-direction: column; gap: 2.5rem; }
+  .vc-item h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: var(--terracotta);
+    margin-bottom: 0.6rem;
+  }
+  .vc-item p { color: var(--charcoal-light); }
+  .vc-gallery {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+  }
+  .vc-img {
+    aspect-ratio: 1;
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+  .vc-img-1 { background: linear-gradient(135deg, #8B3D34 0%, #C96B5E 100%); }
+  .vc-img-2 { background: linear-gradient(135deg, #5C4A1E 0%, #C79A2B 100%); }
+  .vc-img-3 { background: linear-gradient(135deg, #3a2318 0%, #8B5A2B 100%); }
+  .vc-img-4 { background: linear-gradient(135deg, #1e2a3a 0%, #3a5a7A 100%); grid-column: 1/-1; aspect-ratio: 2/1; }
+  .vc-img-pattern {
+    position: absolute; inset: 0;
+    display: flex; align-items: center; justify-content: center;
+    opacity: 0.35;
+  }
+
+  /* ─── PERFORMATIVE TRADITIONS ─── */
+  #performative { background: var(--charcoal); color: var(--offwhite); }
+  #performative .section-title { color: var(--offwhite); }
+  #performative .divider { background: var(--ochre); }
+  .pt-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .pt-card {
+    border-top: 2px solid var(--terracotta);
+    padding-top: 1.5rem;
+  }
+  .pt-card h3 {
+    font-size: 1.35rem;
+    color: var(--ochre);
+    margin-bottom: 0.8rem;
+  }
+  .pt-card p { color: rgba(245,242,233,0.7); font-size: 0.92rem; }
+
+  /* ─── ARCHIVE ─── */
+  #archive { background: var(--offwhite); }
+  .archive-intro { max-width: 680px; margin-bottom: 3rem; }
+  .archive-intro p { color: var(--charcoal-light); }
+  .archive-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  .archive-item {
+    border: 1px solid var(--sand);
+    padding: 1.5rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+  }
+  .archive-item:hover { border-color: var(--terracotta); box-shadow: 0 4px 24px rgba(164,74,63,0.1); }
+  .archive-tag {
+    display: inline-block;
+    font-size: 0.68rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: white;
+    background: var(--terracotta);
+    padding: 3px 10px;
+    margin-bottom: 0.8rem;
+    font-family: 'Jost', sans-serif;
+  }
+  .archive-tag.ochre { background: var(--ochre); }
+  .archive-tag.green { background: #4A7A4A; }
+  .archive-item h4 { font-size: 1.15rem; margin-bottom: 0.4rem; }
+  .archive-item p { font-size: 0.85rem; color: var(--charcoal-light); }
+  .archive-meta {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--cream);
+    font-size: 0.75rem;
+    color: var(--charcoal-light);
+    display: flex; gap: 1rem;
+  }
+
+  /* ─── COMMUNITY VOICES ─── */
+  #community { background: var(--cream); }
+  .cv-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    margin-top: 3rem;
+  }
+  .cv-card {
+    background: var(--offwhite);
+    padding: 2rem;
+    position: relative;
+  }
+  .cv-card::before {
+    content: '"';
+    position: absolute;
+    top: 1rem; right: 1.5rem;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 5rem;
+    color: var(--terracotta);
+    opacity: 0.12;
+    line-height: 1;
+  }
+  .cv-avatar {
+    width: 56px; height: 56px;
+    border-radius: 50%;
+    margin-bottom: 1rem;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.4rem;
+    color: white;
+    font-weight: 600;
+  }
+  .cv-avatar-1 { background: linear-gradient(135deg, #8B3D34, #C96B5E); }
+  .cv-avatar-2 { background: linear-gradient(135deg, #5C4A1E, #C79A2B); }
+  .cv-avatar-3 { background: linear-gradient(135deg, #2B3D4A, #5A7A8A); }
+  .cv-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.1rem;
+    font-style: italic;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  .cv-name { font-size: 0.8rem; letter-spacing: 0.1em; color: var(--terracotta); font-weight: 500; }
+  .cv-role { font-size: 0.75rem; color: var(--charcoal-light); }
+
+  /* ─── QUOTE BLOCK ─── */
+  #quote-block {
+    background: var(--terracotta);
+    padding: 80px 5%;
+    text-align: center;
+  }
+  .big-quote {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.5rem, 3vw, 2.5rem);
+    font-style: italic;
+    color: var(--offwhite);
+    max-width: 780px;
+    margin: 0 auto 1.5rem;
+    line-height: 1.4;
+    font-weight: 300;
+  }
+  .quote-attribution {
+    font-size: 0.78rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    color: rgba(245,242,233,0.65);
+  }
+
+  /* ─── RESEARCH ─── */
+  #research { background: var(--offwhite); }
+  .research-grid {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    gap: 60px;
+    margin-top: 3rem;
+    align-items: start;
+  }
+  .research-text p { color: var(--charcoal-light); margin-bottom: 1.2rem; }
+  .research-methods {
+    background: var(--cream);
+    padding: 2rem;
+    border-left: 3px solid var(--ochre);
+  }
+  .research-methods h4 {
+    font-size: 1rem;
+    font-weight: 500;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--charcoal);
+    margin-bottom: 1rem;
+    font-family: 'Jost', sans-serif;
+  }
+  .method-list {
+    list-style: none;
+    display: flex; flex-direction: column; gap: 0.7rem;
+  }
+  .method-list li {
+    padding-left: 1.2rem;
+    position: relative;
+    font-size: 0.9rem;
+    color: var(--charcoal-light);
+  }
+  .method-list li::before {
+    content: '—';
+    position: absolute; left: 0;
+    color: var(--terracotta);
+  }
+
+  /* ─── MAP ─── */
+  #map { background: var(--charcoal); color: var(--offwhite); padding: 100px 5%; }
+  #map .section-title { color: var(--offwhite); }
+  #map .divider { background: var(--ochre); }
+  .map-frame {
+    width: 100%;
+    height: 420px;
+    margin-top: 2.5rem;
+    background: #1a2a3a;
+    position: relative;
+    overflow: hidden;
+    border: 1px solid rgba(199,154,43,0.2);
+  }
+  .map-frame iframe { width: 100%; height: 100%; border: none; filter: saturate(0.7) contrast(1.1); }
+  .map-note {
+    margin-top: 1.5rem;
+    font-size: 0.82rem;
+    color: rgba(245,242,233,0.5);
+  }
+
+  /* ─── EXHIBITIONS ─── */
+  #exhibitions { background: var(--offwhite); }
+  .ex-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-top: 3rem;
+  }
+  .ex-card {
+    background: var(--cream);
+    padding: 2rem 1.5rem;
+    border-bottom: 2px solid var(--terracotta);
+    transition: background 0.2s;
+    cursor: pointer;
+  }
+  .ex-card:hover { background: var(--sand); }
+  .ex-num {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 2.5rem;
+    color: var(--terracotta);
+    opacity: 0.2;
+    line-height: 1;
+    margin-bottom: 0.8rem;
+  }
+  .ex-card h3 { font-size: 1.1rem; margin-bottom: 0.5rem; }
+  .ex-card p { font-size: 0.82rem; color: var(--charcoal-light); }
+
+  /* ─── CONTACT ─── */
+  #contact { background: var(--cream); }
+  .contact-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.2fr;
+    gap: 60px;
+    margin-top: 3rem;
+  }
+  .contact-info h3 {
+    font-size: 1.4rem;
+    margin-bottom: 1.5rem;
+    color: var(--terracotta);
+  }
+  .contact-detail {
+    margin-bottom: 1rem;
+    font-size: 0.9rem;
+    color: var(--charcoal-light);
+  }
+  .contact-detail strong { color: var(--charcoal); font-weight: 500; }
+  .contact-detail a { color: var(--terracotta); text-decoration: none; }
+  .contact-detail a:hover { text-decoration: underline; }
+  .contact-affiliation {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: var(--offwhite);
+    border-left: 3px solid var(--ochre);
+    font-size: 0.85rem;
+    color: var(--charcoal-light);
+  }
+  .contact-affiliation strong { color: var(--charcoal); }
+  .contact-form { display: flex; flex-direction: column; gap: 1rem; }
+  .contact-form input,
+  .contact-form textarea {
+    background: var(--offwhite);
+    border: 1px solid var(--sand);
+    padding: 0.85rem 1.1rem;
+    font-family: 'Jost', sans-serif;
+    font-size: 0.9rem;
+    color: var(--charcoal);
+    outline: none;
+    transition: border-color 0.2s;
+    width: 100%;
+  }
+  .contact-form input:focus,
+  .contact-form textarea:focus { border-color: var(--terracotta); }
+  .contact-form textarea { min-height: 140px; resize: vertical; }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: var(--charcoal);
+    color: rgba(245,242,233,0.6);
+    padding: 60px 5% 30px;
+  }
+  .footer-grid {
+    max-width: 1200px; margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr;
+    gap: 4rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid rgba(245,242,233,0.08);
+  }
+  .footer-brand .logo {
+    font-family: 'Cormorant Garamond', serif;
+    color: var(--offwhite);
+    font-size: 1.4rem;
+    margin-bottom: 0.8rem;
+  }
+  .footer-brand p { font-size: 0.85rem; line-height: 1.7; }
+  .footer-col h4 {
+    color: var(--offwhite);
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    margin-bottom: 1.2rem;
+  }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 0.5rem; }
+  .footer-col ul li a {
+    color: rgba(245,242,233,0.5);
+    text-decoration: none;
+    font-size: 0.85rem;
+    transition: color 0.2s;
+  }
+  .footer-col ul li a:hover { color: var(--ochre); }
+  .footer-bottom {
+    max-width: 1200px; margin: 2rem auto 0;
+    display: flex; justify-content: space-between; align-items: center;
+    font-size: 0.75rem;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 900px) {
+    .cards-grid { grid-template-columns: repeat(2, 1fr); }
+    .intro-grid,
+    .vc-grid,
+    .research-grid,
+    .contact-grid { grid-template-columns: 1fr; gap: 40px; }
+    .pt-grid { grid-template-columns: 1fr 1fr; }
+    .archive-grid,
+    .cv-grid { grid-template-columns: 1fr 1fr; }
+    .ex-grid { grid-template-columns: 1fr 1fr; }
+    .footer-grid { grid-template-columns: 1fr 1fr; }
+  }
+  @media (max-width: 600px) {
+    section { padding: 70px 5%; }
+    .cards-grid,
+    .pt-grid,
+    .archive-grid,
+    .cv-grid,
+    .ex-grid { grid-template-columns: 1fr; }
+    .nav-links { display: none; flex-direction: column; position: fixed; top: 64px; left: 0; right: 0; background: var(--charcoal); padding: 2rem 5%; gap: 1.5rem; }
+    .nav-links.open { display: flex; }
+    .hamburger { display: flex; }
+    .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#hero" class="nav-logo">Sahariya</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="#about">About</a></li>
+    <li><a href="#visual-culture">Visual Culture</a></li>
+    <li><a href="#archive">Archive</a></li>
+    <li><a href="#community">Voices</a></li>
+    <li><a href="#research">Research</a></li>
+    <li><a href="#map">Map</a></li>
+    <li><a href="#exhibitions">Exhibitions</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()">
+    <span></span><span></span><span></span>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section id="hero">
+  <div class="hero-bg"></div>
+  <div class="hero-pattern"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Rajasthan · Baran District · India</p>
+    <h1 class="hero-title">Sahariya<br><em>Digital Archive</em></h1>
+    <p class="hero-subtitle">A Living Archive of Art, Culture, and Indigenous Knowledge</p>
+    <div class="btn-group">
+      <a href="#archive" class="btn btn-primary">Explore Archive</a>
+      <a href="#about" class="btn btn-outline">About the Community</a>
+    </div>
+  </div>
+</section>
+
+<!-- INTRO -->
+<section id="intro">
+  <div class="container">
+    <div class="intro-grid">
+      <div class="intro-text fade-in">
+        <p class="section-label">Introduction</p>
+        <h2 class="section-title">A Community at the <em>Heart of Culture</em></h2>
+        <div class="divider"></div>
+        <p>The Sahariya community of Rajasthan represents one of India's most culturally rich yet underrepresented Particularly Vulnerable Tribal Groups (PVTGs). This platform brings together visual, performative, and oral traditions through long-term ethnographic fieldwork and collaborative documentation.</p>
+        <p>This digital archive documents Mandana paintings, ritual practices, performances, and oral narratives—not as static artefacts, but as living expressions of ecological knowledge, spirituality, and community life.</p>
+        <div class="btn-group" style="margin-top:2rem;">
+          <a href="#visual-culture" class="btn btn-primary">Explore Visual Culture</a>
+          <a href="#community" class="btn btn-outline" style="color:var(--charcoal);border-color:var(--sand);">Community Voices</a>
+        </div>
+      </div>
+      <div class="intro-image fade-in">
+        <div class="img-frame">
+          <div class="mandana-svg">
+            <svg width="220" height="280" viewBox="0 0 220 280" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Mandana-inspired geometric pattern -->
+              <rect x="40" y="40" width="140" height="200" stroke="#F5F2E9" stroke-width="1.5" fill="none"/>
+              <rect x="60" y="60" width="100" height="160" stroke="#C79A2B" stroke-width="1" fill="none"/>
+              <circle cx="110" cy="140" r="40" stroke="#F5F2E9" stroke-width="1.5" fill="none"/>
+              <circle cx="110" cy="140" r="25" stroke="#C79A2B" stroke-width="1" fill="none"/>
+              <circle cx="110" cy="140" r="8" fill="#F5F2E9" opacity="0.6"/>
+              <!-- Geometric motifs -->
+              <path d="M70 80 L110 60 L150 80 L150 120 L110 140 L70 120 Z" stroke="#F5F2E9" stroke-width="1" fill="none"/>
+              <path d="M70 200 L110 220 L150 200 L150 160 L110 140 L70 160 Z" stroke="#F5F2E9" stroke-width="1" fill="none"/>
+              <!-- Corner lotus motifs -->
+              <circle cx="40" cy="40" r="8" fill="none" stroke="#C79A2B" stroke-width="1"/>
+              <circle cx="180" cy="40" r="8" fill="none" stroke="#C79A2B" stroke-width="1"/>
+              <circle cx="40" cy="240" r="8" fill="none" stroke="#C79A2B" stroke-width="1"/>
+              <circle cx="180" cy="240" r="8" fill="none" stroke="#C79A2B" stroke-width="1"/>
+              <!-- Small diamonds -->
+              <rect x="106" y="36" width="8" height="8" transform="rotate(45 110 40)" fill="#C79A2B" opacity="0.7"/>
+              <rect x="106" y="236" width="8" height="8" transform="rotate(45 110 240)" fill="#C79A2B" opacity="0.7"/>
+            </svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORE CARDS -->
+<section id="explore">
+  <div class="container">
+    <p class="section-label fade-in">Explore</p>
+    <h2 class="section-title fade-in">Discover the <em>Living Heritage</em></h2>
+    <div class="cards-grid">
+      <a href="#visual-culture" class="card fade-in">
+        <div class="card-thumb card-thumb-vc">
+          <div class="card-inner-icon">🎨</div>
+        </div>
+        <div class="card-body">
+          <h3>Visual Culture</h3>
+          <p>Mandana paintings, symbols, and the art of ecological knowledge expressed in colour and form.</p>
+          <span class="card-link">Explore →</span>
+        </div>
+      </a>
+      <a href="#performative" class="card fade-in">
+        <div class="card-thumb card-thumb-pt">
+          <div class="card-inner-icon">🎭</div>
+        </div>
+        <div class="card-body">
+          <h3>Performative Traditions</h3>
+          <p>Swang theatre, folk songs, oral narratives, and ritual performances.</p>
+          <span class="card-link">Explore →</span>
+        </div>
+      </a>
+      <a href="#archive" class="card fade-in">
+        <div class="card-thumb card-thumb-da">
+          <div class="card-inner-icon">🗄️</div>
+        </div>
+        <div class="card-body">
+          <h3>Digital Archive</h3>
+          <p>Photographs, videos, audio recordings, and ethnographic materials from fieldwork.</p>
+          <span class="card-link">Explore →</span>
+        </div>
+      </a>
+      <a href="#community" class="card fade-in">
+        <div class="card-thumb card-thumb-cv">
+          <div class="card-inner-icon">🗣️</div>
+        </div>
+        <div class="card-body">
+          <h3>Community Voices</h3>
+          <p>Stories, interviews, and testimonies from Sahariya artists, elders, and youth.</p>
+          <span class="card-link">Explore →</span>
+        </div>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="container">
+    <p class="section-label fade-in">About</p>
+    <h2 class="section-title fade-in">Who are the <em>Sahariya?</em></h2>
+    <div class="divider"></div>
+    <div class="about-text fade-in">
+      <p>The Sahariya are the only Particularly Vulnerable Tribal Group (PVTG) in Rajasthan, primarily residing in Baran district, particularly in Shahabad and Kishanganj. Historically dependent on forest ecosystems, the community has developed a deeply interconnected system of life in which art, ecology, and spirituality coexist.</p>
+      <p>Their cultural practices—ranging from Mandana wall paintings to Swang performances—reflect a worldview grounded in balance between human life, nature, and the divine. These traditions are not merely aesthetic forms, but constitute a living system of knowledge, memory, and identity.</p>
+      <p>Despite their rich cultural heritage, the Sahariya remain largely absent from digital and academic representation. This platform seeks to address that absence by documenting and sharing its knowledge systems in collaboration with the community itself.</p>
+    </div>
+  </div>
+</section>
+
+<!-- VISUAL CULTURE -->
+<section id="visual-culture">
+  <div class="container">
+    <p class="section-label fade-in">Visual Culture</p>
+    <h2 class="section-title fade-in">Art as <em>Living Knowledge</em></h2>
+    <div class="divider"></div>
+    <div class="vc-grid">
+      <div class="vc-items fade-in">
+        <div class="vc-item">
+          <h3>Mandana Paintings</h3>
+          <p>Mandana are ritual wall and floor paintings created using natural materials such as clay, lime, and plant pigments. These geometric and symbolic designs are closely tied to festivals, agricultural cycles, and life events.</p>
+        </div>
+        <div class="vc-item">
+          <h3>Materials &amp; Techniques</h3>
+          <p>Colours are derived from locally available materials—red ochre, white lime, black carbon, and plant-based dyes—reflecting a sustainable, ecological approach to art-making.</p>
+        </div>
+        <div class="vc-item">
+          <h3>Symbolism &amp; Meaning</h3>
+          <p>Motifs often represent fertility, protection, harmony, and cosmic order. These visual forms function as a cultural language through which the community expresses its worldview.</p>
+        </div>
+        <p style="font-size:0.82rem;color:var(--charcoal-light);font-style:italic;">Sahariya visual culture is embedded in everyday life, ritual practice, and ecological relationships. Created primarily by women, these art forms express cosmology, morality, and social structure.</p>
+      </div>
+      <div class="vc-gallery fade-in">
+        <div class="vc-img vc-img-1">
+          <div class="vc-img-pattern">
+            <svg width="80" height="80" viewBox="0 0 80 80"><circle cx="40" cy="40" r="30" stroke="white" stroke-width="2" fill="none"/><circle cx="40" cy="40" r="15" stroke="white" stroke-width="1.5" fill="none"/><rect x="28" y="28" width="24" height="24" stroke="white" stroke-width="1.5" fill="none" transform="rotate(45 40 40)"/></svg>
+          </div>
+        </div>
+        <div class="vc-img vc-img-2">
+          <div class="vc-img-pattern">
+            <svg width="80" height="80" viewBox="0 0 80 80"><polygon points="40,10 70,70 10,70" stroke="white" stroke-width="2" fill="none"/><polygon points="40,25 58,60 22,60" stroke="white" stroke-width="1.5" fill="none"/></svg>
+          </div>
+        </div>
+        <div class="vc-img vc-img-3">
+          <div class="vc-img-pattern">
+            <svg width="80" height="80" viewBox="0 0 80 80"><rect x="15" y="15" width="50" height="50" stroke="white" stroke-width="2" fill="none"/><path d="M15 40 L40 15 L65 40 L40 65 Z" stroke="white" stroke-width="1.5" fill="none"/></svg>
+          </div>
+        </div>
+        <div class="vc-img vc-img-4">
+          <div class="vc-img-pattern">
+            <svg width="140" height="70" viewBox="0 0 140 70"><path d="M10 35 Q35 10 70 35 Q105 60 130 35" stroke="white" stroke-width="2" fill="none"/><circle cx="35" cy="20" r="8" stroke="white" stroke-width="1.5" fill="none"/><circle cx="70" cy="50" r="8" stroke="white" stroke-width="1.5" fill="none"/><circle cx="105" cy="20" r="8" stroke="white" stroke-width="1.5" fill="none"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PERFORMATIVE TRADITIONS -->
+<section id="performative">
+  <div class="container">
+    <p class="section-label fade-in" style="color:var(--ochre);">Performative Traditions</p>
+    <h2 class="section-title fade-in">Voice, Memory, <em style="color:var(--ochre-light);">and Movement</em></h2>
+    <div class="divider fade-in"></div>
+    <p class="fade-in" style="color:rgba(245,242,233,0.7);max-width:620px;margin-bottom:0;">Sahariya culture is equally expressed through performance, oral storytelling, and ritual enactments. These traditions carry collective memory, ethical values, and ecological knowledge across generations.</p>
+    <div class="pt-grid">
+      <div class="pt-card fade-in">
+        <h3>Swang Theatre</h3>
+        <p>A performative tradition combining drama, music, and storytelling. It reflects the community's social realities, mythological narratives, and moral teachings.</p>
+      </div>
+      <div class="pt-card fade-in">
+        <h3>Folk Songs &amp; Oral Narratives</h3>
+        <p>Songs and stories serve as repositories of history, belief systems, and lived experiences—performed during rituals, festivals, and communal gatherings.</p>
+      </div>
+      <div class="pt-card fade-in">
+        <h3>Ritual Performances</h3>
+        <p>Local fairs and seasonal celebrations bring together performance, art, and community participation, reinforcing social bonds and cultural continuity.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ARCHIVE -->
+<section id="archive">
+  <div class="container">
+    <p class="section-label fade-in">Digital Archive</p>
+    <h2 class="section-title fade-in">Preserving a <em>Living Heritage</em></h2>
+    <div class="divider"></div>
+    <div class="archive-intro fade-in">
+      <p>This digital archive is a curated collection of visual, audio, and textual materials documenting Sahariya cultural practices. It is designed as an open-access resource while maintaining ethical responsibility and community consent.</p>
+    </div>
+    <div class="archive-grid">
+      <div class="archive-item fade-in">
+        <span class="archive-tag">Visual Art</span>
+        <h4>Mandana Ritual Paintings</h4>
+        <p>Floor and wall paintings from Baran district documenting geometric motifs and their symbolic significance.</p>
+        <div class="archive-meta"><span>📍 Shahabad</span><span>🗓 2023</span></div>
+      </div>
+      <div class="archive-item fade-in">
+        <span class="archive-tag ochre">Performance</span>
+        <h4>Swang Theatre Documentation</h4>
+        <p>Video and audio recordings of Swang performances capturing traditional narratives and staging.</p>
+        <div class="archive-meta"><span>📍 Kishanganj</span><span>🗓 2022</span></div>
+      </div>
+      <div class="archive-item fade-in">
+        <span class="archive-tag green">Oral History</span>
+        <h4>Elder Testimonies</h4>
+        <p>Recorded oral histories from community elders describing ecological knowledge and cultural memory.</p>
+        <div class="archive-meta"><span>📍 Baran</span><span>🗓 2023</span></div>
+      </div>
+      <div class="archive-item fade-in">
+        <span class="archive-tag">Visual Art</span>
+        <h4>Seasonal Art Practices</h4>
+        <p>Photographic documentation of Mandana created for agricultural festivals and life cycle events.</p>
+        <div class="archive-meta"><span>📍 Shahabad</span><span>🗓 2024</span></div>
+      </div>
+      <div class="archive-item fade-in">
+        <span class="archive-tag ochre">Performance</span>
+        <h4>Festival Rituals</h4>
+        <p>Multi-media documentation of seasonal fairs, including performance, dress, and spatial arrangements.</p>
+        <div class="archive-meta"><span>📍 Kishanganj</span><span>🗓 2022</span></div>
+      </div>
+      <div class="archive-item fade-in">
+        <span class="archive-tag green">Oral History</span>
+        <h4>Women's Creative Narratives</h4>
+        <p>Interviews with women artists discussing the transmission and meaning of Mandana traditions.</p>
+        <div class="archive-meta"><span>📍 Baran</span><span>🗓 2024</span></div>
+      </div>
+    </div>
+    <p style="margin-top:2rem;font-size:0.82rem;color:var(--charcoal-light);font-style:italic;">The archive is not merely a repository but a collaborative space where the Sahariya community participates in documenting and interpreting their own cultural heritage.</p>
+  </div>
+</section>
+
+<!-- COMMUNITY VOICES -->
+<section id="community">
+  <div class="container">
+    <p class="section-label fade-in">Community</p>
+    <h2 class="section-title fade-in">Voices from the <em>Community</em></h2>
+    <div class="divider"></div>
+    <p class="fade-in" style="max-width:620px;color:var(--charcoal-light);margin-bottom:0;">This section foregrounds the perspectives of Sahariya artists, elders, and youth. Their narratives provide insight into lived experiences, creative practices, and changing cultural landscapes.</p>
+    <div class="cv-grid">
+      <div class="cv-card fade-in">
+        <div class="cv-avatar cv-avatar-1">S</div>
+        <p class="cv-quote">"Our art is part of our life. It is how we remember, celebrate, and understand the world around us."</p>
+        <p class="cv-name">Sahariya Artist</p>
+        <p class="cv-role">Mandana Practitioner · Shahabad</p>
+      </div>
+      <div class="cv-card fade-in">
+        <div class="cv-avatar cv-avatar-2">E</div>
+        <p class="cv-quote">"Every pattern we draw is a conversation with the land. The colours come from the earth itself."</p>
+        <p class="cv-name">Community Elder</p>
+        <p class="cv-role">Knowledge Holder · Baran</p>
+      </div>
+      <div class="cv-card fade-in">
+        <div class="cv-avatar cv-avatar-3">Y</div>
+        <p class="cv-quote">"Learning Mandana from my grandmother is learning how to see—the world, the seasons, ourselves."</p>
+        <p class="cv-name">Youth Participant</p>
+        <p class="cv-role">Artist · Kishanganj</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUOTE BLOCK -->
+<div id="quote-block">
+  <blockquote class="big-quote">"Art and ecology are not separate worlds for us. The Mandana is how we speak to the land, and the land speaks back."</blockquote>
+  <p class="quote-attribution">— Sahariya Community Voice, Baran District</p>
+</div>
+
+<!-- RESEARCH -->
+<section id="research">
+  <div class="container">
+    <p class="section-label fade-in">Research</p>
+    <h2 class="section-title fade-in">Research <em>Approach</em></h2>
+    <div class="divider"></div>
+    <div class="research-grid">
+      <div class="research-text fade-in">
+        <p>This project is based on an interdisciplinary methodology combining visual ethnography, performance studies, and participatory research.</p>
+        <p>Fieldwork conducted in the Baran district involves sustained community engagement over multiple seasons, building relationships of trust and reciprocity with Sahariya artists, elders, and youth.</p>
+        <p>The research adopts a collaborative approach, engaging Sahariya community members as co-researchers and knowledge holders. This ensures that documentation is not extractive but dialogic and ethically grounded.</p>
+        <p>The analytical framework integrates cultural theory, semiotics, and ecological perspectives to interpret Sahariya art as a living epistemology—a system of knowledge expressed through practice rather than text.</p>
+      </div>
+      <div class="research-methods fade-in">
+        <h4>Fieldwork Methods</h4>
+        <ul class="method-list">
+          <li>Participant observation</li>
+          <li>Semi-structured interviews</li>
+          <li>Audio-visual documentation</li>
+          <li>Community workshops</li>
+          <li>Collaborative archiving sessions</li>
+          <li>Ethical review &amp; community consent</li>
+        </ul>
+        <div style="margin-top:2rem;padding-top:2rem;border-top:1px solid var(--sand);">
+          <h4 style="margin-bottom:1rem;">Research Framework</h4>
+          <ul class="method-list">
+            <li>Visual ethnography</li>
+            <li>Performance studies</li>
+            <li>Participatory action research</li>
+            <li>Cultural semiotics</li>
+            <li>Ecological anthropology</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MAP -->
+<section id="map">
+  <div class="container">
+    <p class="section-label fade-in" style="color:var(--ochre);">Geography</p>
+    <h2 class="section-title fade-in">Geography of <em style="color:var(--ochre-light);">the Study</em></h2>
+    <div class="divider fade-in"></div>
+    <p class="fade-in" style="color:rgba(245,242,233,0.7);max-width:620px;">This interactive map locates the villages and regions of Baran district, Rajasthan, where fieldwork has been conducted. The geographical context is essential to understanding Sahariya culture, as art practices are closely tied to landscape, ecology, and local resources.</p>
+    <div class="map-frame fade-in">
+      <iframe 
+        src="https://www.openstreetmap.org/export/embed.html?bbox=76.2%2C24.5%2C77.2%2C25.2&layer=mapnik&marker=24.85%2C76.65"
+        title="Baran District, Rajasthan – Sahariya fieldwork region"
+        loading="lazy">
+      </iframe>
+    </div>
+    <p class="map-note">Baran District, Rajasthan — Primary fieldwork area including Shahabad and Kishanganj blocks</p>
+  </div>
+</section>
+
+<!-- EXHIBITIONS -->
+<section id="exhibitions">
+  <div class="container">
+    <p class="section-label fade-in">Exhibitions</p>
+    <h2 class="section-title fade-in">Curated <em>Exhibitions</em></h2>
+    <div class="divider"></div>
+    <p class="fade-in" style="max-width:620px;color:var(--charcoal-light);margin-bottom:0;">Thematic exhibitions that bring together selected materials from the archive, offering interpretive pathways for engaging with the collection.</p>
+    <div class="ex-grid">
+      <div class="ex-card fade-in">
+        <div class="ex-num">01</div>
+        <h3>Art &amp; Ecology</h3>
+        <p>How Mandana motifs encode ecological relationships and seasonal knowledge.</p>
+      </div>
+      <div class="ex-card fade-in">
+        <div class="ex-num">02</div>
+        <h3>Women &amp; Mandana</h3>
+        <p>The central role of women as knowledge holders, artists, and transmitters of tradition.</p>
+      </div>
+      <div class="ex-card fade-in">
+        <div class="ex-num">03</div>
+        <h3>Ritual &amp; Performance</h3>
+        <p>Documentation of ceremonies, festivals, and their performative dimensions.</p>
+      </div>
+      <div class="ex-card fade-in">
+        <div class="ex-num">04</div>
+        <h3>Continuity &amp; Change</h3>
+        <p>How Sahariya traditions adapt, persist, and transform across generations.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="container">
+    <p class="section-label fade-in">Contact</p>
+    <h2 class="section-title fade-in">Get in <em>Touch</em></h2>
+    <div class="divider"></div>
+    <div class="contact-grid">
+      <div class="contact-info fade-in">
+        <h3>Dr. Sunil Lohar</h3>
+        <div class="contact-detail"><strong>Position:</strong> Assistant Professor (Art and Aesthetics)</div>
+        <div class="contact-detail"><strong>School:</strong> School of Liberal Arts</div>
+        <div class="contact-detail"><strong>Institution:</strong> Indian Institute of Technology (IIT) Jodhpur</div>
+        <div class="contact-detail"><strong>Tel:</strong> +91 9849080967</div>
+        <div class="contact-detail"><strong>Email:</strong> <a href="mailto:sunillohar@iitj.ac.in">sunillohar@iitj.ac.in</a></div>
+        <div class="contact-detail"><a href="mailto:sunillohar2412@gmail.com">sunillohar2412@gmail.com</a></div>
+        <div class="contact-affiliation">
+          <strong>About this Project</strong><br>
+          We welcome collaborations that support ethical research, cultural preservation, and community engagement.
+        </div>
+      </div>
+      <div class="fade-in">
+        <div class="contact-form">
+          <input type="text" placeholder="Your Name">
+          <input type="email" placeholder="Email Address">
+          <input type="text" placeholder="Subject">
+          <textarea placeholder="Your message…"></textarea>
+          <button class="btn btn-primary" type="button" style="align-self:flex-start;" onclick="alert('To enable this form, connect it to a service like Formspree. See the GitHub Pages setup instructions.')">Send Message</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div class="footer-brand">
+      <div class="logo">Sahariya Digital Archive</div>
+      <p>A Living Archive of Art, Culture, and Indigenous Knowledge. Documenting the Sahariya community of Baran, Rajasthan through collaborative ethnographic fieldwork.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Pages</h4>
+      <ul>
+        <li><a href="#about">About the Sahariya</a></li>
+        <li><a href="#visual-culture">Visual Culture</a></li>
+        <li><a href="#performative">Performative Traditions</a></li>
+        <li><a href="#archive">Digital Archive</a></li>
+        <li><a href="#community">Community Voices</a></li>
+        <li><a href="#research">Research</a></li>
+        <li><a href="#map">Map</a></li>
+        <li><a href="#exhibitions">Exhibitions</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Institution</h4>
+      <ul>
+        <li><a href="https://iitj.ac.in" target="_blank">IIT Jodhpur</a></li>
+        <li><a href="mailto:sunillohar@iitj.ac.in">Contact</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Sahariya Digital Archive · IIT Jodhpur</span>
+    <span>Developed with community collaboration</span>
+  </div>
+</footer>
+
+<script>
+  // Hamburger menu
+  function toggleMenu() {
+    document.getElementById('navLinks').classList.toggle('open');
+  }
+
+  // Scroll fade-in animation
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+
+  // Stagger card animations
+  document.querySelectorAll('.cards-grid .card').forEach((card, i) => {
+    card.style.transitionDelay = `${i * 0.08}s`;
+  });
+  document.querySelectorAll('.archive-grid .archive-item').forEach((item, i) => {
+    item.style.transitionDelay = `${i * 0.06}s`;
+  });
+</script>
+</body>
+</html>

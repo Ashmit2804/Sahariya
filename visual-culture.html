@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Visual Culture — Sahariya Digital Archive</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.vc-intro-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:center; margin-bottom:80px; }
+.vc-section { margin-bottom:80px; }
+.vc-section-grid { display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start; }
+.vc-section-grid.reverse { direction:rtl; }
+.vc-section-grid.reverse > * { direction:ltr; }
+.vc-text p { color:var(--charcoal-light); margin-bottom:1.1rem; }
+.vc-gallery-2 { display:grid; grid-template-columns:1fr 1fr; gap:10px; }
+.vc-gallery-3 { display:grid; grid-template-columns:1fr 1fr 1fr; gap:10px; margin-top:2rem; }
+.vc-img {
+  aspect-ratio:1; position:relative; overflow:hidden; cursor:zoom-in;
+  display:flex; align-items:center; justify-content:center;
+}
+.vc-img.wide { aspect-ratio:2/1; grid-column:1/-1; }
+.vc-img-1 { background:linear-gradient(135deg,#8B3D34,#C96B5E); }
+.vc-img-2 { background:linear-gradient(135deg,#5C4A1E,#C79A2B); }
+.vc-img-3 { background:linear-gradient(135deg,#3a2318,#8B5A2B); }
+.vc-img-4 { background:linear-gradient(135deg,#2a3a2a,#5a7a4a); }
+.vc-img-5 { background:linear-gradient(135deg,#1e2a3a,#4a6a8a); }
+.vc-img-6 { background:linear-gradient(135deg,#3a1e3a,#8a4a8a); }
+.vc-img svg { opacity:0.3; }
+.img-caption { font-size:0.78rem; color:var(--charcoal-light); margin-top:0.5rem; font-style:italic; text-align:center; }
+.materials-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:2.5rem; }
+.material-card { background:var(--cream); padding:1.8rem; border-top:2px solid var(--ochre); }
+.material-card h4 { font-size:1.1rem; margin-bottom:0.5rem; color:var(--terracotta); }
+.material-card p { font-size:0.85rem; color:var(--charcoal-light); }
+.symbol-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; margin-top:2.5rem; }
+.symbol-item { text-align:center; }
+.symbol-icon { width:80px; height:80px; margin:0 auto 1rem; display:flex; align-items:center; justify-content:center; }
+.symbol-item h4 { font-size:0.98rem; margin-bottom:0.3rem; }
+.symbol-item p { font-size:0.8rem; color:var(--charcoal-light); }
+#lightbox { display:none; position:fixed; inset:0; background:rgba(0,0,0,0.9); z-index:999; align-items:center; justify-content:center; }
+#lightbox.open { display:flex; }
+#lb-inner { position:relative; max-width:700px; width:90%; text-align:center; }
+#lb-close { position:absolute; top:-40px; right:0; background:none; border:none; color:white; font-size:1.5rem; cursor:pointer; }
+#lb-caption { color:rgba(255,255,255,0.6); margin-top:1rem; font-size:0.85rem; }
+@media(max-width:768px){
+  .vc-intro-grid,.vc-section-grid{grid-template-columns:1fr;}
+  .vc-section-grid.reverse{direction:ltr;}
+  .materials-grid{grid-template-columns:1fr 1fr;}
+  .symbol-grid{grid-template-columns:1fr 1fr;}
+}
+@media(max-width:500px){ .materials-grid,.symbol-grid{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Sahariya</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html">About</a></li>
+    <li><a href="visual-culture.html">Visual Culture</a></li>
+    <li><a href="archive.html">Archive</a></li>
+    <li><a href="community.html">Voices</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="exhibitions.html">Exhibitions</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <p class="page-hero-eyebrow">Visual Culture</p>
+    <h1>Art as <em>Living Knowledge</em></h1>
+    <p>Sahariya visual culture is embedded in everyday life, ritual practice, and ecological relationships — created primarily by women, these art forms express cosmology, morality, and social structure.</p>
+  </div>
+</div>
+
+<section style="background:var(--offwhite);">
+  <div class="container">
+
+    <!-- Intro -->
+    <div class="vc-intro-grid">
+      <div class="fade-in">
+        <p class="section-label">Introduction</p>
+        <h2 class="section-title">Where <em>Art Meets Ecology</em></h2>
+        <div class="divider"></div>
+        <p style="color:var(--charcoal-light);margin-bottom:1.2rem;">For the Sahariya, visual art is inseparable from spiritual life, ecological knowledge, and community memory. Unlike art made for display, Mandana is made for use — to mark transitions, invite protection, and communicate with forces beyond human sight.</p>
+        <p style="color:var(--charcoal-light);">These forms are created primarily by women, who carry the knowledge of patterns, materials, and meanings across generations. Their practice is simultaneously artistic, ritual, and scholarly — a form of living research into the nature of the world.</p>
+      </div>
+      <div class="vc-gallery-2 fade-in">
+        <div class="vc-img vc-img-1" data-lightbox data-caption="Mandana floor pattern, Shahabad village">
+          <svg width="70" height="70" viewBox="0 0 70 70" fill="none"><circle cx="35" cy="35" r="28" stroke="white" stroke-width="1.5"/><circle cx="35" cy="35" r="16" stroke="white" stroke-width="1"/><rect x="22" y="22" width="26" height="26" stroke="white" stroke-width="1" transform="rotate(45 35 35)"/></svg>
+        </div>
+        <div class="vc-img vc-img-2" data-lightbox data-caption="Wall painting motif, Kishanganj">
+          <svg width="70" height="70" viewBox="0 0 70 70" fill="none"><polygon points="35,8 62,62 8,62" stroke="white" stroke-width="1.5" fill="none"/><polygon points="35,20 52,55 18,55" stroke="white" stroke-width="1" fill="none"/></svg>
+        </div>
+        <div class="vc-img wide vc-img-3" data-lightbox data-caption="Continuous border pattern, festival documentation">
+          <svg width="120" height="60" viewBox="0 0 120 60" fill="none"><path d="M10 30 Q30 10 50 30 Q70 50 90 30 Q110 10 120 30" stroke="white" stroke-width="1.5" fill="none"/><circle cx="30" cy="15" r="6" stroke="white" stroke-width="1" fill="none"/><circle cx="70" cy="45" r="6" stroke="white" stroke-width="1" fill="none"/><circle cx="110" cy="15" r="6" stroke="white" stroke-width="1" fill="none"/></svg>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mandana -->
+    <div class="vc-section">
+      <div class="vc-section-grid">
+        <div class="vc-text fade-in">
+          <p class="section-label">Mandana Paintings</p>
+          <h2 class="section-title">Ritual Art on <em>Wall and Floor</em></h2>
+          <div class="divider"></div>
+          <p>Mandana are ritual paintings applied to the walls and floors of homes during festivals, harvests, marriages, births, and deaths. They are made using natural pigments—primarily red ochre on white lime ground—and created freehand by women with practiced hands.</p>
+          <p>The word "Mandana" derives from the Sanskrit root for "to adorn," but in practice these works function less as decoration and more as invitation: they welcome deities, mark the sanctity of a space, and establish the cosmological coordinates of an event.</p>
+          <p>Mandana are ephemeral by design. They are made to be renewed—and this renewal is itself a ritual act. Each application is both a repetition of ancient forms and a new act of creation, keeping the tradition alive in the present tense.</p>
+        </div>
+        <div class="fade-in">
+          <div class="vc-gallery-3">
+            <div class="vc-img vc-img-1" data-lightbox data-caption="Geometric Mandana, Shahabad"><svg width="55" height="55" viewBox="0 0 55 55" fill="none"><rect x="5" y="5" width="45" height="45" stroke="white" stroke-width="1.5" fill="none"/><circle cx="27" cy="27" r="14" stroke="white" stroke-width="1" fill="none"/><rect x="16" y="16" width="22" height="22" stroke="white" stroke-width="1" transform="rotate(45 27 27)" fill="none"/></svg></div>
+            <div class="vc-img vc-img-2" data-lightbox data-caption="Lotus motif, ritual context"><svg width="55" height="55" viewBox="0 0 55 55" fill="none"><circle cx="27" cy="27" r="20" stroke="white" stroke-width="1.5" fill="none"/><path d="M27 7 L33 20 L27 27 L21 20 Z" stroke="white" stroke-width="1" fill="none"/><path d="M47 27 L34 33 L27 27 L34 21 Z" stroke="white" stroke-width="1" fill="none"/><path d="M27 47 L21 34 L27 27 L33 34 Z" stroke="white" stroke-width="1" fill="none"/><path d="M7 27 L20 21 L27 27 L20 33 Z" stroke="white" stroke-width="1" fill="none"/></svg></div>
+            <div class="vc-img vc-img-3" data-lightbox data-caption="Harvest festival pattern"><svg width="55" height="55" viewBox="0 0 55 55" fill="none"><polygon points="27,4 50,51 4,51" stroke="white" stroke-width="1.5" fill="none"/><polygon points="27,15 42,44 12,44" stroke="white" stroke-width="1" fill="none"/><circle cx="27" cy="30" r="5" stroke="white" stroke-width="1" fill="none"/></svg></div>
+          </div>
+          <p class="img-caption" style="margin-top:1rem;">Documentation from Shahabad and Kishanganj blocks, Baran district · 2022–2024</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Materials -->
+    <div class="vc-section" style="background:var(--cream);margin:0 -5%;padding:60px 5%;">
+      <p class="section-label fade-in">Materials &amp; Technique</p>
+      <h2 class="section-title fade-in">Colours from the <em>Earth</em></h2>
+      <div class="divider"></div>
+      <p class="lead-text fade-in">The Sahariya approach to art-making reflects a deep ecological sensibility. Every material is locally sourced, and the act of preparation is itself a ritual — gathering, grinding, and mixing with intention.</p>
+      <div class="materials-grid">
+        <div class="material-card fade-in">
+          <h4>Red Ochre (Geru)</h4>
+          <p>The primary pigment in Mandana, sourced from iron-rich clay deposits. It symbolises vitality, auspiciousness, and the warmth of the earth. Applied to walls, it provides the dominant ground colour against which white designs are drawn.</p>
+        </div>
+        <div class="material-card fade-in">
+          <h4>White Lime (Khadia)</h4>
+          <p>Ground limestone or chalk used to paint patterns onto the red ochre base. The stark white against terracotta creates the characteristic visual rhythm of Mandana. Lime also has protective, purifying significance in ritual contexts.</p>
+        </div>
+        <div class="material-card fade-in">
+          <h4>Black Carbon</h4>
+          <p>Used for detailing and outlines in certain traditions. Derived from soot or charred plant material, black carbon adds contrast and is associated with warding off negative forces.</p>
+        </div>
+        <div class="material-card fade-in">
+          <h4>Plant-Based Dyes</h4>
+          <p>Certain festivals call for colours beyond the standard palette — turmeric yellows, indigo blues, and greens from local vegetation are incorporated into expanded compositions.</p>
+        </div>
+        <div class="material-card fade-in">
+          <h4>Clay Ground</h4>
+          <p>Walls and floors are prepared with a fresh clay wash before painting. This preparation is itself part of the ritual, marking the transformation of domestic space into sacred space.</p>
+        </div>
+        <div class="material-card fade-in">
+          <h4>Application Methods</h4>
+          <p>Paintings are applied freehand using fingers, cloth pads, or thin sticks. The absence of stencils or rulers means that each work is a direct expression of the maker's embodied knowledge of form and proportion.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Symbolism -->
+    <div class="vc-section" style="margin-top:80px;">
+      <p class="section-label fade-in">Symbolism</p>
+      <h2 class="section-title fade-in">A Visual <em>Language</em></h2>
+      <div class="divider"></div>
+      <p class="lead-text fade-in">Mandana motifs form a visual vocabulary that community members can read and interpret. They are not abstract in the Western sense — each element carries specific meaning and functions within a larger symbolic grammar.</p>
+      <div class="symbol-grid">
+        <div class="symbol-item fade-in">
+          <div class="symbol-icon"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><circle cx="30" cy="30" r="24" stroke="#A44A3F" stroke-width="2"/><circle cx="30" cy="30" r="12" stroke="#C79A2B" stroke-width="1.5"/><circle cx="30" cy="30" r="4" fill="#A44A3F"/></svg></div>
+          <h4>Concentric Circles</h4>
+          <p>Cosmic order, the sun, cycles of time and seasonal renewal.</p>
+        </div>
+        <div class="symbol-item fade-in">
+          <div class="symbol-icon"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><polygon points="30,6 54,54 6,54" stroke="#A44A3F" stroke-width="2" fill="none"/><polygon points="30,18 46,48 14,48" stroke="#C79A2B" stroke-width="1.5" fill="none"/></svg></div>
+          <h4>Triangles</h4>
+          <p>Fertility, the relationship between earth, water, and sky.</p>
+        </div>
+        <div class="symbol-item fade-in">
+          <div class="symbol-icon"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><rect x="8" y="8" width="44" height="44" stroke="#A44A3F" stroke-width="2" fill="none"/><rect x="18" y="18" width="24" height="24" stroke="#C79A2B" stroke-width="1.5" transform="rotate(45 30 30)" fill="none"/></svg></div>
+          <h4>Nested Squares</h4>
+          <p>Protection, stability of the home, containment of sacred energy.</p>
+        </div>
+        <div class="symbol-item fade-in">
+          <div class="symbol-icon"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><path d="M30 8 L36 22 L30 30 L24 22 Z" stroke="#A44A3F" stroke-width="1.5" fill="none"/><path d="M52 30 L38 36 L30 30 L38 24 Z" stroke="#A44A3F" stroke-width="1.5" fill="none"/><path d="M30 52 L24 38 L30 30 L36 38 Z" stroke="#A44A3F" stroke-width="1.5" fill="none"/><path d="M8 30 L22 24 L30 30 L22 36 Z" stroke="#A44A3F" stroke-width="1.5" fill="none"/></svg></div>
+          <h4>Lotus / Petals</h4>
+          <p>Purity, spiritual aspiration, the divine feminine principle.</p>
+        </div>
+        <div class="symbol-item fade-in">
+          <div class="symbol-icon"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><path d="M8 30 Q20 10 30 30 Q40 50 52 30" stroke="#A44A3F" stroke-width="2" fill="none"/><circle cx="20" cy="18" r="5" stroke="#C79A2B" stroke-width="1.5" fill="none"/><circle cx="40" cy="42" r="5" stroke="#C79A2B" stroke-width="1.5" fill="none"/></svg></div>
+          <h4>Wave &amp; River</h4>
+          <p>Water as life force, seasonal flow, the journey between worlds.</p>
+        </div>
+        <div class="symbol-item fade-in">
+          <div class="symbol-icon"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><line x1="30" y1="8" x2="30" y2="52" stroke="#A44A3F" stroke-width="2"/><line x1="8" y1="30" x2="52" y2="30" stroke="#A44A3F" stroke-width="2"/><circle cx="30" cy="30" r="8" stroke="#C79A2B" stroke-width="1.5" fill="none"/></svg></div>
+          <h4>Cross / Axis</h4>
+          <p>The four directions, balance, the meeting point of heaven and earth.</p>
+        </div>
+        <div class="symbol-item fade-in">
+          <div class="symbol-icon"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><path d="M20 50 Q20 30 30 20 Q40 30 40 50" stroke="#A44A3F" stroke-width="2" fill="none"/><circle cx="30" cy="16" r="6" stroke="#A44A3F" stroke-width="1.5" fill="none"/><line x1="18" y1="38" x2="42" y2="38" stroke="#C79A2B" stroke-width="1" stroke-dasharray="4,3"/></svg></div>
+          <h4>Tree of Life</h4>
+          <p>Ancestral memory, rootedness, the connection of generations.</p>
+        </div>
+        <div class="symbol-item fade-in">
+          <div class="symbol-icon"><svg width="60" height="60" viewBox="0 0 60 60" fill="none"><path d="M15 45 Q30 15 45 45" stroke="#A44A3F" stroke-width="2" fill="none"/><path d="M20 35 Q30 20 40 35" stroke="#C79A2B" stroke-width="1.5" fill="none"/><line x1="30" y1="45" x2="30" y2="52" stroke="#A44A3F" stroke-width="2"/></svg></div>
+          <h4>Peacock</h4>
+          <p>Beauty, monsoon rain, joy, and the blessing of abundance.</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<div class="quote-strip">
+  <blockquote>"When I paint Mandana, I am not inventing — I am remembering. The patterns come from my hands, but they belong to everyone."</blockquote>
+  <p class="attribution">— Sahariya Woman Artist, Shahabad</p>
+</div>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo">Sahariya Digital Archive</div><p>A Living Archive of Art, Culture, and Indigenous Knowledge from Baran, Rajasthan.</p></div>
+      <div class="footer-col"><h4>Pages</h4><ul><li><a href="about.html">About</a></li><li><a href="visual-culture.html">Visual Culture</a></li><li><a href="performative.html">Performative Traditions</a></li><li><a href="archive.html">Digital Archive</a></li></ul></div>
+      <div class="footer-col"><h4>More</h4><ul><li><a href="community.html">Community Voices</a></li><li><a href="research.html">Research</a></li><li><a href="map.html">Map</a></li><li><a href="exhibitions.html">Exhibitions</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="contact.html">Get in Touch</a></li><li><a href="mailto:sunillohar@iitj.ac.in">sunillohar@iitj.ac.in</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Sahariya Digital Archive · IIT Jodhpur</span><span>Developed with community collaboration</span></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>

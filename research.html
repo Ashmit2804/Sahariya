@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Research — Sahariya Digital Archive</title>
+<link rel="stylesheet" href="style.css">
+<style>
+.research-main { display:grid; grid-template-columns:3fr 2fr; gap:70px; align-items:start; }
+.research-text p { color:var(--charcoal-light); margin-bottom:1.3rem; }
+.sidebar-box { background:var(--cream); padding:2rem; border-left:3px solid var(--ochre); position:sticky; top:90px; }
+.sidebar-box h4 { font-family:'Jost',sans-serif; font-size:0.68rem; letter-spacing:0.2em; text-transform:uppercase; margin-bottom:1.2rem; }
+.method-item { padding:0.7rem 0; border-bottom:1px solid var(--sand); font-size:0.88rem; color:var(--charcoal-light); display:flex; gap:0.8rem; align-items:flex-start; }
+.method-item:last-child { border-bottom:none; }
+.method-dot { width:6px; height:6px; border-radius:50%; background:var(--terracotta); flex-shrink:0; margin-top:7px; }
+.framework-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.2rem; margin-top:2rem; }
+.fw-item { background:var(--offwhite); padding:1.2rem; border-top:2px solid var(--terracotta); }
+.fw-item h5 { font-size:0.95rem; margin-bottom:0.3rem; }
+.fw-item p { font-size:0.8rem; color:var(--charcoal-light); }
+.ethics-section { background:var(--charcoal); padding:3rem; margin-top:4rem; }
+.ethics-section h3 { color:var(--offwhite); font-size:1.8rem; margin-bottom:1rem; }
+.ethics-section p { color:rgba(245,242,233,0.72); margin-bottom:1rem; }
+.ethics-points { display:grid; grid-template-columns:1fr 1fr; gap:1.5rem; margin-top:2rem; }
+.ep { border-left:2px solid var(--ochre); padding-left:1rem; }
+.ep h5 { color:var(--ochre); font-size:0.9rem; margin-bottom:0.4rem; font-family:'Jost',sans-serif; font-weight:500; }
+.ep p { font-size:0.83rem; color:rgba(245,242,233,0.6); margin:0; }
+@media(max-width:900px){ .research-main{grid-template-columns:1fr;} .sidebar-box{position:static;} .framework-grid{grid-template-columns:1fr;} .ethics-points{grid-template-columns:1fr;} }
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html" class="nav-logo">Sahariya</a>
+  <ul class="nav-links" id="navLinks">
+    <li><a href="about.html">About</a></li>
+    <li><a href="visual-culture.html">Visual Culture</a></li>
+    <li><a href="archive.html">Archive</a></li>
+    <li><a href="community.html">Voices</a></li>
+    <li><a href="research.html">Research</a></li>
+    <li><a href="map.html">Map</a></li>
+    <li><a href="exhibitions.html">Exhibitions</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+  <div class="hamburger" id="hamburger" onclick="toggleMenu()"><span></span><span></span><span></span></div>
+</nav>
+
+<div class="page-hero">
+  <div class="page-hero-content">
+    <p class="page-hero-eyebrow">Research &amp; Methodology</p>
+    <h1>How We <em>Work</em></h1>
+    <p>An interdisciplinary methodology combining visual ethnography, performance studies, and participatory research — conducted over multiple seasons in Baran district.</p>
+  </div>
+</div>
+
+<section style="background:var(--offwhite);">
+  <div class="container">
+    <div class="research-main">
+      <div>
+        <p class="section-label fade-in">Project Overview</p>
+        <h2 class="section-title fade-in">Research <em>Approach</em></h2>
+        <div class="divider"></div>
+        <div class="research-text fade-in">
+          <p>This project is based on an interdisciplinary methodology combining visual ethnography, performance studies, and participatory research. It is situated at the intersection of art history, anthropology, and ecological studies — a location that allows it to address Sahariya cultural practices in their full complexity.</p>
+          <p>The research does not treat Sahariya art as a fixed object to be described and archived. Instead, it approaches art practices as dynamic processes — ongoing negotiations between tradition and change, between individual creativity and collective knowledge, between local meaning and global context.</p>
+        </div>
+
+        <p class="section-label fade-in" style="margin-top:3rem;">Fieldwork</p>
+        <h2 class="section-title fade-in">In the <em>Field</em></h2>
+        <div class="divider"></div>
+        <div class="research-text fade-in">
+          <p>Fieldwork conducted in the Baran district spans multiple seasons and involves sustained engagement with communities in Shahabad and Kishanganj blocks. The research is not extractive — each visit involves reciprocal exchange, community review, and collaborative decision-making about what is documented and how.</p>
+          <p>The fieldwork approach prioritises relationship over data collection. Researchers spend extended periods in communities, participating in daily life and cultural events rather than simply arriving to record specific practices. This approach, while slower, produces richer and more ethically grounded documentation.</p>
+          <p>Community workshops have been a central part of the methodology — occasions where community members review documentation materials, correct errors, add context, and decide what should and should not be included in the public archive.</p>
+        </div>
+
+        <p class="section-label fade-in" style="margin-top:3rem;">Analytical Framework</p>
+        <h2 class="section-title fade-in">Theoretical <em>Foundations</em></h2>
+        <div class="divider"></div>
+        <div class="research-text fade-in">
+          <p>The analytical framework integrates cultural theory, semiotics, and ecological perspectives to interpret Sahariya art as a living epistemology — a system of knowing expressed through practice rather than text. This framing draws on work in more-than-human geography, indigenous knowledge studies, and performance theory.</p>
+          <p>A key theoretical commitment is to treat the Sahariya not as a "primitive" or "pre-modern" society but as a sophisticated community with a complex knowledge system that is fully contemporary — engaged with the pressures and possibilities of the present moment while drawing on deep historical roots.</p>
+        </div>
+        <div class="framework-grid fade-in">
+          <div class="fw-item"><h5>Visual Ethnography</h5><p>Photography, video, and drawing as primary research methods, not just illustration.</p></div>
+          <div class="fw-item"><h5>Performance Studies</h5><p>Treating cultural events as performances with structure, meaning, and agency.</p></div>
+          <div class="fw-item"><h5>Participatory Action Research</h5><p>Community members as co-researchers, not subjects of study.</p></div>
+          <div class="fw-item"><h5>Ecological Anthropology</h5><p>Understanding culture as embedded in and expressive of environmental relationships.</p></div>
+          <div class="fw-item"><h5>Cultural Semiotics</h5><p>Reading visual and performative forms as complex sign systems.</p></div>
+          <div class="fw-item"><h5>Indigenous Knowledge Studies</h5><p>Recognising non-Western knowledge systems as legitimate and sophisticated.</p></div>
+        </div>
+
+        <div class="ethics-section fade-in">
+          <h3>Research Ethics</h3>
+          <p>The ethical dimensions of this research are not an afterthought — they are constitutive of the entire project. Working with a Particularly Vulnerable Tribal Group requires particular care and ongoing reflection.</p>
+          <div class="ethics-points">
+            <div class="ep"><h5>Informed Consent</h5><p>All documentation is conducted with explicit community consent. Materials are reviewed and approved before archiving.</p></div>
+            <div class="ep"><h5>Community Ownership</h5><p>The community retains ownership of their cultural knowledge and images. The archive serves as a platform, not a claim.</p></div>
+            <div class="ep"><h5>Access Control</h5><p>Some materials are restricted at community request. Sacred content is excluded from the public archive entirely.</p></div>
+            <div class="ep"><h5>Benefit Sharing</h5><p>Research outputs are shared with the community in accessible formats, and community members receive recognition and compensation for their participation.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="fade-in">
+        <div class="sidebar-box">
+          <h4>Fieldwork Methods</h4>
+          <div class="method-item"><div class="method-dot"></div><div><strong>Participant Observation</strong><br>Sustained presence in community life across multiple seasons</div></div>
+          <div class="method-item"><div class="method-dot"></div><div><strong>Semi-Structured Interviews</strong><br>In-depth conversations with artists, elders, performers, and youth</div></div>
+          <div class="method-item"><div class="method-dot"></div><div><strong>Audio-Visual Documentation</strong><br>Photography, video, and audio recording with community consent</div></div>
+          <div class="method-item"><div class="method-dot"></div><div><strong>Community Workshops</strong><br>Collaborative review and co-authorship of archive materials</div></div>
+          <div class="method-item"><div class="method-dot"></div><div><strong>Field Notes</strong><br>Ethnographic observation and contextual annotation</div></div>
+          <div class="method-item"><div class="method-dot"></div><div><strong>Archival Research</strong><br>Historical records, census data, and prior scholarship</div></div>
+        </div>
+
+        <div class="sidebar-box" style="margin-top:1.5rem;border-color:var(--terracotta);">
+          <h4>Lead Researcher</h4>
+          <p style="font-size:0.9rem;color:var(--charcoal);font-weight:500;margin-bottom:0.3rem;">Dr. Sunil Lohar</p>
+          <p style="font-size:0.82rem;color:var(--charcoal-light);margin-bottom:0.8rem;">Assistant Professor (Art and Aesthetics)<br>School of Liberal Arts, IIT Jodhpur</p>
+          <a href="contact.html" class="btn btn-primary" style="font-size:0.68rem;">Get in Touch</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div class="footer-brand"><div class="logo">Sahariya Digital Archive</div><p>A Living Archive of Art, Culture, and Indigenous Knowledge from Baran, Rajasthan.</p></div>
+      <div class="footer-col"><h4>Pages</h4><ul><li><a href="about.html">About</a></li><li><a href="visual-culture.html">Visual Culture</a></li><li><a href="performative.html">Performative Traditions</a></li><li><a href="archive.html">Digital Archive</a></li></ul></div>
+      <div class="footer-col"><h4>More</h4><ul><li><a href="community.html">Community Voices</a></li><li><a href="research.html">Research</a></li><li><a href="map.html">Map</a></li><li><a href="exhibitions.html">Exhibitions</a></li></ul></div>
+      <div class="footer-col"><h4>Contact</h4><ul><li><a href="contact.html">Get in Touch</a></li><li><a href="mailto:sunillohar@iitj.ac.in">sunillohar@iitj.ac.in</a></li></ul></div>
+    </div>
+    <div class="footer-bottom"><span>© 2025 Sahariya Digital Archive · IIT Jodhpur</span><span>Developed with community collaboration</span></div>
+  </div>
+</footer>
+<script src="main.js"></script>
+</body>
+</html>
